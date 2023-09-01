@@ -343,6 +343,7 @@ class _HomePageUserState extends State<HomePageUser> {
                   height: 8,
                 ),
                 TextFormField(
+                  style: poppins,
                   decoration: InputDecoration(
                     hintText: 'Ketik lokasi anda saat ini',
                     hintStyle: const TextStyle(color: Colors.grey),
@@ -392,8 +393,18 @@ class _HomePageUserState extends State<HomePageUser> {
                   height: 20,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("Alarm ART", style: lato.copyWith(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Alarm ART", style: lato.copyWith(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        Text("Status Anda", style: lato.copyWith(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),),
+                      ],
+                    ),
                     const SizedBox(
                       width: 65,
                     ),
