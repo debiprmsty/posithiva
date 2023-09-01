@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
+import 'package:posithiva/auth/RegisterPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'POSITHIVA',
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: RegisterPage(),
     );
   }
 }
