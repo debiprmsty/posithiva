@@ -16,9 +16,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          
-        ],
+        children: [],
       ),
     );
   }
