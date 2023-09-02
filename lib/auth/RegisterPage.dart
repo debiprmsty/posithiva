@@ -95,6 +95,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Column(
                     children: [
                       TextFormField(
+                        style: poppins,
                         controller: _namaController,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
@@ -111,6 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: poppins,
                         controller: _alamatController,
                         keyboardType: TextInputType.streetAddress,
                         decoration: InputDecoration(
@@ -127,6 +129,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: poppins,
                         controller: _usernameController,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
@@ -143,6 +146,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: poppins,
                         obscureText: !_showPassword,
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -176,6 +180,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: poppins,
                         controller: _no_bpjs,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(

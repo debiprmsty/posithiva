@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
+import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 
 class HomePageUser extends StatefulWidget {
@@ -246,13 +247,15 @@ class _HomePageUserState extends State<HomePageUser> {
                         color: Colors.white,
                         image: DecorationImage(image: AssetImage("assets/images/avatar.png",),fit: BoxFit.cover)
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
               GestureDetector(
                 onTap: () {
-                  print("Halo");
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return const ProfilUserPage();
+                  }));
                 },
                 child: Container(
                   width: 193,

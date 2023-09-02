@@ -57,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     children: [
                       TextFormField(
+                        style: poppins,
                         controller: nomor_bpjs,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
@@ -74,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 15,
                       ),
                        TextFormField(
+                        style: poppins,
                         obscureText: !_showPassword,
                         validator: (value) {
                           if (value!.isEmpty) {
