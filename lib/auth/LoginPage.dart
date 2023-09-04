@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posithiva/theme.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -15,8 +16,21 @@ class _LoginPageState extends State<LoginPage> {
 
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [],
+        children: [
+          Container(
+            color: birumuda,
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 12,
+                  height: 30,
+                )
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
