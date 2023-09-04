@@ -88,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: height * 0.25,
                   child: Image.asset('assets/images/logo.png', width: 150, height: 150,)),
               Container(
-                height: height * 0.5 + 250,
+                height: height * 0.5 + 270,
                 width: 320,
                 child: Form(
                   key: _formKey,

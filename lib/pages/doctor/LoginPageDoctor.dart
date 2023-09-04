@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:posithiva/auth/RegisterPage.dart';
-import 'package:posithiva/pages/HomePageUser.dart';
-import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
+import 'package:posithiva/pages/doctor/HomePageNakes.dart';
 import 'package:posithiva/theme.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginPageDoctor extends StatefulWidget {
+  const LoginPageDoctor({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginPageDoctor> createState() => _LoginPageDoctorState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageDoctorState extends State<LoginPageDoctor> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController nomor_bpjs = TextEditingController();
+  TextEditingController _usernameController= TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   String _email = '', _password = '';
 
@@ -37,18 +35,40 @@ class _LoginPageState extends State<LoginPage> {
     double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: height * 0.25,
-                child: Center(child: Image.asset("assets/images/logo.png", height: 150, width: 150,))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  ElevatedButton(onPressed: (){
+                    Navigator.of(context).pop();
+                  }, 
+                  child: Row(
+                    children: [
+                      Image.asset("assets/images/back.png",width: 15,height: 15,),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text("Kembali",style: poppins.copyWith(color: Colors.white),)
+                    ],
+                  ),
+                  style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(birutua)),)
+                ],
               ),
               const SizedBox(
-                height: 80,
+                height: 35,
+              ),
+              SizedBox(
+                height: height * 0.25,
+                child: Image.asset('assets/images/logo.png', width: 150, height: 150,)
+              ),
+              const SizedBox(
+                height: 50,
               ),
               Container(
                 height: height * 0.5 + 130,
@@ -59,21 +79,20 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       TextFormField(
                         style: poppins,
-                        controller: nomor_bpjs,
-                        keyboardType: TextInputType.number,
+                        controller: _usernameController,
+                        keyboardType: TextInputType.name,
                         decoration: InputDecoration(
-                          labelText: 'Nomor BPJS',
-                          labelStyle: poppins.copyWith(color: Colors.grey),
-                          fillColor: abu,
-                          filled: true,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(10)),
-                            borderSide: BorderSide.none
-                          )
-                        ),
+                            labelText: 'Username/Email',
+                            labelStyle: poppins.copyWith(color: Colors.grey),
+                            fillColor: abu,
+                            filled: true,
+                            border: const OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(8)),
+                                borderSide: BorderSide.none)),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 30,
                       ),
                        TextFormField(
                         style: poppins,
@@ -107,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                                 borderSide: BorderSide.none)),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 80,
                       ),
                       Container(
                         width: 184,
@@ -123,68 +142,16 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           onPressed: () {
                             Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const HomePageUser();
+                              return const HomePageNakes();
                             }));
                           },
                           child: Text('LOGIN', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
                         ),
                       ),
-                      const SizedBox(
-                        height: 80,
-                      ),
-                      Text('BELUM PUNYA AKUN?', style: poppins.copyWith(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 15), textAlign: TextAlign.center,),
-                      const SizedBox(
-                        height: 3,
-                      ),
-                      Container(
-                        width: 165,
-                        height: 36,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(biruabu),
-                            shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const RegisterPage();
-                            }));
-                          },
-                          child: Text('DAFTAR', style: poppins.copyWith(color: birutua, fontWeight: FontWeight.bold, fontSize: 24),)
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Container(
-                        width: 320,
-                        height: 41,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(birutua),
-                            shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const LoginPageDoctor();
-                            }));
-                          },
-                          child: Text('MASUK SEBAGAI NAKES', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 20),)
-                        ),
-                      ),
                     ],
                   ),
                 ),
-              ),
-              
-              
+              )
             ],
           ),
         ),
