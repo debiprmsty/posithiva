@@ -3,18 +3,19 @@ import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 
-class ObatkuPage extends StatefulWidget {
-  const ObatkuPage({super.key});
+class KurirReguler extends StatefulWidget {
+  const KurirReguler({super.key});
 
   @override
-  State<ObatkuPage> createState() => _ObatkuPageState();
+  State<KurirReguler> createState() => _KurirRegulerState();
 }
 
-class _ObatkuPageState extends State<ObatkuPage> {
+class _KurirRegulerState extends State<KurirReguler> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -394,262 +395,169 @@ class _ObatkuPageState extends State<ObatkuPage> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 120,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Row(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          height: height * 1.2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      "assets/images/back.png",
-                      width: 15,
-                      height: 15,
+                    ElevatedButton(onPressed: (){
+                      Navigator.of(context).pop();
+                    }, 
+                    child: Row(
+                      children: [
+                        Image.asset("assets/images/back.png",width: 15,height: 15,),
+                        const SizedBox(
+                          width: 6,
+                        ),
+                        Text("Kembali",style: poppins.copyWith(color: Colors.white),)
+                      ],
                     ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      "Kembali",
-                      style: poppins.copyWith(color: Colors.white),
-                    )
-                  ],
-                ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(birutua)),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              "Obatku",
-              style: poppins.copyWith(
-                  fontSize: 25, color: birutua, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 8),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(
-                "Taily Counter ARV-ku",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black),
-              ),
-              Icon(
-                Icons.info,
-                color: birutua,
-                size: 20,
-              ),
-            ]),
-            const SizedBox(height: 8),
-            Stack(
-              children: [
-                Container(
-                  width: width,
-                  height: 120,
-                  decoration: BoxDecoration(
-                      color: biruabu,
-                      borderRadius: BorderRadius.circular(10)),
-                ),
-                Positioned(
-                  top: 8,
-                  left: 0,
-                  right: 0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(left: 15),
-                        child: Text(
-                          "QR ARV",
-                          style: poppins.copyWith(fontSize: 15,color: birutua,fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(right: 7),
-                        child: Image.asset("assets/images/qr.png",scale: 0.7,)
-                      )
-                    ],  
-                  ),
-                ),
-                Positioned(
-                  top: 17,
-                  left: 85,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        width: 100,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: abu,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('JENIS ARV',style: poppins.copyWith(fontSize: 5,fontStyle: FontStyle.italic),),
-                            Row(
-                              children: [
-                                Text("TLD",style: lato.copyWith(fontSize: 11,color: birutua,fontWeight: FontWeight.bold,),),
-                                const SizedBox(width: 5,),
-                                Text("TENOVOFIR LAMIVUDINE \n DOLUTEGRAVIR",style: lato.copyWith(fontSize: 5,color: Colors.grey),)
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            width:46,
-                            height: 22,
-                            decoration: BoxDecoration(
-                              color: abu,
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                 Text('TANGGAL EXPIRED ARV',style: poppins.copyWith(fontSize: 3.5,fontStyle: FontStyle.italic),),
-                                 Text("AUG 2023",style: lato.copyWith(fontSize: 8,color: birutua,fontWeight: FontWeight.bold),)
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 7,
-                          ),
-                          Container(
-                            padding: const EdgeInsets.all(2),
-                            width: 46,
-                            height: 22,
-                            decoration: BoxDecoration(
-                              color: abu,
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                 Text('sEDIAAN ARV',style: poppins.copyWith(fontSize: 3.5,fontStyle: FontStyle.italic),),
-                                 Text("SATUAN",style: lato.copyWith(fontSize: 8,color: birutua,fontWeight: FontWeight.bold),)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                            height: 4,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(2),
-                        width: 100,
-                        height: 25,
-                        decoration: BoxDecoration(
-                          color: abu,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                        child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                 Text('LOKASI PENGAMBILAN ARV',style: poppins.copyWith(fontSize: 5,fontStyle: FontStyle.italic),),
-                                 Text("PUSKESMAS BULELENG 1",style: lato.copyWith(fontSize: 8,color: birutua,fontWeight: FontWeight.bold),)
-                              ],
-                            ),
-                      ),
+                      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(birutua)),)
                     ],
-                  )
-                ),
-                Positioned(
-                  top: 17,
-                  left: 246,
-                  child: Container(
-                    padding: const EdgeInsets.all(2),
-                    width: 50,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: birutua
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("JUMLAH",style: lato.copyWith(fontSize: 9,color: Colors.white,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-                        Text("OBAT SISA", style:lato.copyWith(fontSize: 6,color: Colors.white,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-                        Text("21",style: poppins.copyWith(fontSize: 32,color: Colors.white,fontWeight: FontWeight.bold),),
-                        Text("BUTIR",style: lato.copyWith(fontSize: 7,color: Colors.white,fontWeight: FontWeight.w600),)
-                      ],
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    width: width,
+                    height: 100,
+                    color: Colors.indigo[900],
+                    child: Text("Kurir Reguler",style: poppins.copyWith(fontSize: 45,color: birumuda3,fontWeight: FontWeight.bold),),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Text("Nama Lengkap (Sesui KTP)",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 17,
-                  left: 192,
-                  child: Container(
-                    padding: const EdgeInsets.all(2),
-                    width: 50,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: birumuda3
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Alamat Tujuan",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
                     ),
-                    child : Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text("JUMLAH",style: lato.copyWith(fontSize: 9,color: birutua,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-                        Text("OBAT SISA", style:lato.copyWith(fontSize: 6,color: birutua,fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
-                        Text("30",style: poppins.copyWith(fontSize: 32,color: Colors.white,fontWeight: FontWeight.bold),),
-                        Text("BUTIR",style: lato.copyWith(fontSize: 7,color: Colors.white,fontWeight: FontWeight.w600),)
-                      ],
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Kontak:",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
                     ),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Dikirim dari Puskesmas:",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Jenis Obat:",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Pelayanan:",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
+                    ),
+                  ),
+                   const SizedBox(
+                    height: 13,
+                  ),
+                  Text("Estimasi Biaya:",style: poppins.copyWith(fontSize: 12,color: Colors.grey,fontWeight: FontWeight.w600),),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[300],
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide.none 
+                      )
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    width: width,
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(birutua)
+                      ),
+                      onPressed: (){}, child: Text("SIMPAN",style: poppins.copyWith(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w600),)),
                   )
-                ),
-                Positioned(
-                  top: 17,
-                  left: 300,
-                  child: Container(
-                    padding: const EdgeInsets.all(2),
-                    width: 55,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4),
-                      color: Colors.orange[500]
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text("KLIK DISINI",style: lato.copyWith(fontSize: 9,color: Colors.white,fontWeight: FontWeight.bold),),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(40/2)
-                          ),
-                          child: Icon(Icons.check,color: Colors.white,weight: 9),
-                        ),
-                        const SizedBox(
-                          height: 2,
-                        ),
-                        Text("JIKA ANDA SUDAH KONSUMSI OBAT HARI INI",style: lato.copyWith(fontSize: 5,color: Colors.white),textAlign: TextAlign.center,)
-                      ],
-                    ),
-                  )
-                )
-              ],
-            )
-          ],
+                
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

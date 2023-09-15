@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
+import 'package:posithiva/pages/alarm/AlarmPage.dart';
 import 'package:posithiva/pages/janjitemu/JanjiTemuPage.dart';
 import 'package:posithiva/pages/obatku/ObatKuPage.dart';
+import 'package:posithiva/pages/reminder/ReminderObatPage.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -457,6 +459,7 @@ class _HomePageUserState extends State<HomePageUser> {
         body: SingleChildScrollView(
           child: Center(
             child: Container(
+              height: height * 1.05,
               margin: EdgeInsets.only(top: 20),
               color: Colors.white,
               width: 350,
@@ -471,7 +474,7 @@ class _HomePageUserState extends State<HomePageUser> {
                         fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(
-                    height: 8,
+                    height: 5,
                   ),
                   TextFormField(
                     style: poppins,
@@ -527,85 +530,88 @@ class _HomePageUserState extends State<HomePageUser> {
                             const SizedBox(
                               width: 5,
                             ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "dr.Andrea Susilo",
-                                  style: lato.copyWith(
-                                      fontSize: 20, color: Colors.white),
-                                ),
-                                Text(
-                                  "Puskesmas Buleleng 1",
-                                  style: lato.copyWith(color: Colors.white),
-                                ),
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      width: 50,
-                                      height: 12,
-                                      margin: const EdgeInsets.only(bottom: 5),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey[400],
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      child: Stack(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Image.asset(
-                                                "assets/images/check.png",
-                                                width: 20,
-                                                height: 75,
-                                              ),
-                                              Text(
-                                                "ONLINE",
-                                                style:
-                                                    lato.copyWith(fontSize: 6),
-                                              )
-                                            ],
-                                          )
-                                        ],
+                            Container(
+                              margin: const EdgeInsets.only(bottom: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "dr.Andrea Susilo",
+                                    style: lato.copyWith(
+                                        fontSize: 20, color: Colors.white),
+                                  ),
+                                  Text(
+                                    "Puskesmas Buleleng 1",
+                                    style: lato.copyWith(color: Colors.white),
+                                  ),
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        width: 50,
+                                        height: 12,
+                                        margin: const EdgeInsets.only(bottom: 5),
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey[400],
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Stack(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Image.asset(
+                                                  "assets/images/check.png",
+                                                  width: 20,
+                                                  height: 75,
+                                                ),
+                                                Text(
+                                                  "ONLINE",
+                                                  style:
+                                                      lato.copyWith(fontSize: 6),
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Container(
-                                      width: 50,
-                                      height: 12,
-                                      margin: const EdgeInsets.only(
-                                          left: 5, bottom: 5),
-                                      decoration: BoxDecoration(
-                                          color: Colors.grey[400],
-                                          borderRadius:
-                                              BorderRadius.circular(20)),
-                                      child: Stack(
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Image.asset(
-                                                "assets/images/check.png",
-                                                width: 20,
-                                                height: 75,
-                                              ),
-                                              Text(
-                                                "ON-SITE",
-                                                style:
-                                                    lato.copyWith(fontSize: 6),
-                                              )
-                                            ],
-                                          )
-                                        ],
+                                      Container(
+                                        width: 50,
+                                        height: 12,
+                                        margin: const EdgeInsets.only(
+                                            left: 5, bottom: 5),
+                                        decoration: BoxDecoration(
+                                            color: Colors.grey[400],
+                                            borderRadius:
+                                                BorderRadius.circular(20)),
+                                        child: Stack(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Image.asset(
+                                                  "assets/images/check.png",
+                                                  width: 20,
+                                                  height: 75,
+                                                ),
+                                                Text(
+                                                  "ON-SITE",
+                                                  style:
+                                                      lato.copyWith(fontSize: 6),
+                                                )
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                )
-                              ],
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -614,7 +620,7 @@ class _HomePageUserState extends State<HomePageUser> {
                             Stack(
                               children: [
                                 Container(
-                                  width: 155,
+                                  width: 145,
                                   height: 60,
                                   margin: const EdgeInsets.only(left: 7),
                                   decoration: BoxDecoration(
@@ -672,12 +678,12 @@ class _HomePageUserState extends State<HomePageUser> {
                               ],
                             ),
                             const SizedBox(
-                              width: 8,
+                              width: 1,
                             ),
                             Stack(
                               children: [
                                 Container(
-                                  width: 150,
+                                  width: 145,
                                   height: 60,
                                   margin: const EdgeInsets.only(left: 7),
                                   decoration: BoxDecoration(
@@ -805,7 +811,7 @@ class _HomePageUserState extends State<HomePageUser> {
                         fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(
-                    height: 7,
+                    height: 5,
                   ),
                   Row(
                     children: [
@@ -987,7 +993,7 @@ class _HomePageUserState extends State<HomePageUser> {
                       Stack(
                         children: [
                           Container(
-                            width: 160,
+                            width: 143,
                             height: 100,
                             decoration: BoxDecoration(
                                 color: Colors.orange,
@@ -1017,7 +1023,7 @@ class _HomePageUserState extends State<HomePageUser> {
                           ),
                           Positioned(
                               top: 32,
-                              left: 35,
+                              left: 28,
                               right: 0,
                               child: Row(
                                 children: [
@@ -1043,7 +1049,11 @@ class _HomePageUserState extends State<HomePageUser> {
                               left: 8,
                               right: 8,
                               child: GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    return const ReminderObatPage();
+                                  }));
+                                },
                                 child: Container(
                                   width: 120,
                                   height: 15,
@@ -1061,7 +1071,7 @@ class _HomePageUserState extends State<HomePageUser> {
                     ],
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   Row(
                     children: [
@@ -1084,6 +1094,9 @@ class _HomePageUserState extends State<HomePageUser> {
                       ),
                     ],
                   ),
+                  const SizedBox(
+                    height: 5,
+                  ),
                   Container(
                     width: width,
                     margin: const EdgeInsets.only(bottom: 12),
@@ -1096,7 +1109,11 @@ class _HomePageUserState extends State<HomePageUser> {
                               SizedBox(
                                 width: 180,
                                 child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                                        return const AlarmPage();
+                                      }));
+                                    },
                                     style: ButtonStyle(
                                         backgroundColor:
                                             MaterialStatePropertyAll(
@@ -1130,103 +1147,116 @@ class _HomePageUserState extends State<HomePageUser> {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600),
                               ),
+                              const SizedBox(
+                                height: 5,
+                              ),
                               SizedBox(
                                 width: 180,
-                                height: 60,
+                                height: 90,
                                 child: Row(
                                   children: [
-                                    Container(
-                                      width: 50,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                          color: Colors.red[400],
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colors.white,
-                                        weight: 100,
-                                        size: 26,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 4,
-                                    ),
-                                    Container(
-                                      padding: const EdgeInsets.all(2),
-                                      alignment: Alignment.center,
-                                      width: 50,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                          color: Colors.green[400],
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Text(
-                                        "100 %",
-                                        style: poppins.copyWith(
-                                            fontSize: 16,
+                                    Column(
+                                      children: [
+                                        Container(
+                                          width: 54,
+                                          height: 67,
+                                          decoration: BoxDecoration(
+                                              color: Colors.red[400],
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Icon(
+                                            Icons.add,
                                             color: Colors.white,
-                                            fontWeight: FontWeight.w600),
+                                            weight: 100,
+                                            size: 26,
+                                          ),
+                                        ),
+                                        Text(
+                                        "HIV STATUS",
+                                        style: poppins.copyWith(
+                                          fontSize: 7,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
+                                      ],
                                     ),
                                     const SizedBox(
                                       width: 4,
                                     ),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      width: 50,
-                                      height: 100,
-                                      decoration: BoxDecoration(
-                                          color: Colors.green[400],
-                                          borderRadius:
-                                              BorderRadius.circular(10)),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            "< 40",
+                                    Column(
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.all(2),
+                                          alignment: Alignment.center,
+                                          width: 60,
+                                          height: 67,
+                                          decoration: BoxDecoration(
+                                              color: Colors.green[400],
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Text(
+                                            "100 %",
                                             style: poppins.copyWith(
                                                 fontSize: 16,
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.w600),
                                           ),
-                                          Text(
-                                            "copies/mL",
-                                            style: poppins.copyWith(
-                                                color: Colors.white,
-                                                fontSize: 6),
-                                          )
-                                        ],
+                                        ),
+                                        Text(
+                                        "KETAATAN ARV",
+                                        style: poppins.copyWith(
+                                          fontSize: 7,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 4,
+                                    ),
+                                    Column(
+                                      children: [
+                                        Container(
+                                          alignment: Alignment.center,
+                                          width: 58,
+                                          height: 67,
+                                          decoration: BoxDecoration(
+                                              color: Colors.green[400],
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                "< 40",
+                                                style: poppins.copyWith(
+                                                    fontSize: 16,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.w600),
+                                              ),
+                                              Text(
+                                                "copies/mL",
+                                                style: poppins.copyWith(
+                                                    color: Colors.white,
+                                                    fontSize: 6),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        Text(
+                                        "VIRAL LOAD",
+                                        style: poppins.copyWith(
+                                          fontSize: 7,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      ],
                                     ),
                                   ],
                                 ),
                               ),
-                              SizedBox(
-                                width: 180,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      "HIV",
-                                      style: poppins.copyWith(
-                                        fontSize: 7,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    Text(
-                                      "KETAATAN ART",
-                                      style: poppins.copyWith(fontSize: 7),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    Text("VIRAL LOAD",
-                                        style: poppins.copyWith(fontSize: 7),
-                                        textAlign: TextAlign.start)
-                                  ],
-                                ),
-                              )
+                              
                             ],
                           ),
                           Column(
@@ -1235,7 +1265,7 @@ class _HomePageUserState extends State<HomePageUser> {
                                 margin:
                                     const EdgeInsets.only(left: 200, top: 5),
                                 width: 100,
-                                height: 125,
+                                height: 115,
                                 child: BarChart(
                                   BarChartData(
                                     gridData: FlGridData(show: false),
@@ -1292,8 +1322,8 @@ class _HomePageUserState extends State<HomePageUser> {
                               ),
                               Container(
                                 margin:
-                                    const EdgeInsets.only(left: 200, top: 5),
-                                width: 150,
+                                    const EdgeInsets.only(left: 190, top: 5),
+                                width: 140,
                                 height: 15,
                                 decoration: BoxDecoration(
                                     color: Colors.orange,

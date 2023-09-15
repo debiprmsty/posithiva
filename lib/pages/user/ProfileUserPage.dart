@@ -83,7 +83,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
           child: Container(
             margin: EdgeInsets.only(top: 15),
             color: Colors.white,
-            width: 320,
+            width: 350,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -105,7 +105,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                   ],
                 ),
                 Container(
-                  width: 320,
+                  width: 350,
                   height: 150,
                   margin: const EdgeInsets.only(top: 15),
                   padding: EdgeInsets.only(right: 8, top: 8, bottom: 8),
@@ -148,7 +148,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                 ),
                 Container(
                   height: height * 0.5 + 250,
-                  width: 320,
+                  width: 350,
                   child: Form(
                     key: _formKey,
                     child: Column(
@@ -182,7 +182,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                           controller: _alamatController,
                           keyboardType: TextInputType.streetAddress,
                           decoration: InputDecoration(
-                              fillColor: abu,
+                              fillColor: abu, 
                               filled: true,
                               border: const OutlineInputBorder(
                                   borderRadius:
@@ -267,7 +267,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                           height: 50,
                         ),
                         Container(
-                          width: 320,
+                          width: 350,
                           height: 41,
                           child: ElevatedButton(
                             style: ButtonStyle(
