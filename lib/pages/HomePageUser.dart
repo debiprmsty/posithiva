@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
 import 'package:posithiva/pages/alarm/AlarmPage.dart';
 import 'package:posithiva/pages/janjitemu/JanjiTemuPage.dart';
-import 'package:posithiva/pages/obatku/ObatKuPage.dart';
 import 'package:posithiva/pages/reminder/ReminderObatPage.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
@@ -89,181 +88,6 @@ class _HomePageUserState extends State<HomePageUser> {
             ),
           ],
           centerTitle: true,
-        ),
-        drawer: Drawer(
-          backgroundColor: biruabu,
-          width: width - width * 0.5 + 30,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            child: ListView(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/back.png",
-                            width: 15,
-                            height: 15,
-                          ),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                          Text(
-                            "Kembali",
-                            style: poppins.copyWith(color: Colors.white),
-                          )
-                        ],
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor: MaterialStatePropertyAll(birutua)),
-                    )
-                  ],
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return ObatkuPage();
-                    }));
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Obatku",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Halo");
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Cari Dokter",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Halo");
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Info ARV-ku",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Halo");
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Riwayat Konsultasi",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Halo");
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Kalender Berobat",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Halo");
-                  },
-                  child: Container(
-                    width: 193,
-                    height: 88,
-                    alignment: Alignment.centerLeft,
-                    margin: const EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.all(15),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: birutua),
-                    child: Text(
-                      "Ruang Berdaya",
-                      style: lato.copyWith(
-                          color: Colors.white,
-                          fontStyle: FontStyle.italic,
-                          fontSize: 22),
-                    ),
-                  ),
-                ),
-                // Tambahkan item-menu atau widget lainnya di sini
-              ],
-            ),
-          ),
         ),
         endDrawer: Drawer(
           backgroundColor: biruabu,
@@ -456,6 +280,130 @@ class _HomePageUserState extends State<HomePageUser> {
             ),
           ),
         ),
+        drawer: Drawer(
+        backgroundColor: biruabu,
+        width: width - width * 0.5 + 30,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          child: ListView(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          "assets/images/back.png",
+                          width: 15,
+                          height: 15,
+                        ),
+                        const SizedBox(
+                          width: 6,
+                        ),
+                        Text(
+                          "Kembali",
+                          style: poppins.copyWith(color: Colors.white),
+                        )
+                      ],
+                    ),
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(birutua)),
+                  )
+                ],
+              ),
+              GestureDetector(
+                onTap: () {
+                  print("Halo");
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Pasienku",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  print("Halo");
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Jadwalku",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  print("Halo");
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Praktekku",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  print("Halo");
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Layanan Kirim Obat Pasien",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              // Tambahkan item-menu atau widget lainnya di sini
+            ],
+          ),
+        ),
+      ),
         body: SingleChildScrollView(
           child: Center(
             child: Container(

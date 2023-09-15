@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
+import 'package:posithiva/pages/obatku/NomorAntrian.dart';
+import 'package:posithiva/pages/obatku/ObatSaya.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 
@@ -450,8 +452,7 @@ class _ObatkuPageState extends State<ObatkuPage> {
                   width: width,
                   height: 120,
                   decoration: BoxDecoration(
-                      color: biruabu,
-                      borderRadius: BorderRadius.circular(10)),
+                      color: biruabu, borderRadius: BorderRadius.circular(10)),
                 ),
                 Positioned(
                   top: 8,
@@ -646,7 +647,172 @@ class _ObatkuPageState extends State<ObatkuPage> {
                   )
                 )
               ],
-            )
+            ),
+            const SizedBox(height: 20),
+            Text("Sistem Antrean Ambil Obat [ON-SITE]",
+                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
+            const SizedBox(
+              height: 8,
+            ),
+            Stack(children: [
+              Container(
+                  width: width,
+                  height: 200,
+                  decoration: BoxDecoration(
+                      color: biruabu, borderRadius: BorderRadius.circular(10))),
+              Container(
+                  padding: EdgeInsets.symmetric(vertical: 4),
+                  alignment: Alignment.center,
+                  width: 400,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  height: 45,
+                  color: Colors.white,
+                  child: Column(children: [
+                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
+                        style: poppins.copyWith(
+                            fontSize: 8, fontStyle: FontStyle.italic)),
+                    Text('PUSKESMAS BULELENG 1',
+                        style: poppins.copyWith(fontSize: 15, color: birutua))
+                  ])),
+              Container(
+                  margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
+                  width: 400,
+                  height: 70,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: birumuda2,
+                  ),
+                  padding: const EdgeInsets.all(20),
+                  child: Text('AMBIL PENGAMBILAN OBAT TERSISA',
+                      style:
+                          poppins.copyWith(fontSize: 15, color: Colors.white))),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const NomorAntrian();
+                  }));
+                },
+                child: Container(
+                    margin: const EdgeInsets.only(top: 135, right: 8, left: 8),
+                    padding: EdgeInsets.symmetric(vertical: 4),
+                    alignment: Alignment.center,
+                    width: 400,
+                    height: 45,
+                    color: birutua,
+                    child: Center(
+                      child: Text('AMBIL NOMOR ANTRIAN',
+                          style: poppins.copyWith(
+                              fontSize: 15, color: Colors.white)),
+                    )),
+              ),
+            ]),
+            const SizedBox(height: 20),
+            Text("Kirim Obat [ON-LINE]",
+                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
+            const SizedBox(
+              height: 8,
+            ),
+            Stack(children: [
+              Container(
+                  width: width,
+                  height: 200,
+                  decoration: BoxDecoration(
+                      color: biruabu, borderRadius: BorderRadius.circular(10))),
+              Container(
+                  padding: EdgeInsets.symmetric(vertical: 4),
+                  alignment: Alignment.center,
+                  width: 400,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+                  height: 45,
+                  color: Colors.white,
+                  child: Column(children: [
+                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
+                        style: poppins.copyWith(
+                            fontSize: 8, fontStyle: FontStyle.italic)),
+                    Text('PUSKESMAS BULELENG 1',
+                        style: poppins.copyWith(fontSize: 15, color: birutua))
+                  ])),
+              Row(
+                children: [
+                  Container(
+                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
+                      width: 160,
+                      height: 80,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: birumuda3,
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Column(
+                        children: [
+                          Text(
+                            'KURIR \n REGULER',
+                            style: poppins.copyWith(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text('EST.3-5 HARI KERJA',
+                              style: poppins.copyWith(
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w100)),
+                        ],
+                      )),
+                  const SizedBox(width: 3),
+                  Container(
+                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
+                      width: 160,
+                      height: 80,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: birumuda3,
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Column(
+                        children: [
+                          Text(
+                            'KURIR \n INSTAN',
+                            style: poppins.copyWith(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text('EST.1-2 JAM KERJA',
+                              style: poppins.copyWith(
+                                  fontSize: 10,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w100)),
+                        ],
+                      )),
+                ],
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const ObatSaya();
+                  }));
+                },
+                child: Container(
+                    margin: const EdgeInsets.only(top: 146, right: 8, left: 8),
+                    padding: EdgeInsets.symmetric(vertical: 4),
+                    alignment: Alignment.center,
+                    width: 400,
+                    height: 45,
+                    color: birutua,
+                    child: Center(
+                      child: Text('KIRIM OBAT SAYA',
+                          style: poppins.copyWith(
+                              fontSize: 15, color: Colors.white)),
+                    )),
+              ),
+            ]),
           ],
         ),
       )),
