@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
-import 'package:posithiva/pages/obatku/NomorAntrian.dart';
-import 'package:posithiva/pages/obatku/ObatSaya.dart';
+import 'package:posithiva/auth/LoginPage.dart';
+import 'package:posithiva/pages/caridoctor/ArvPage.dart';
+import 'package:posithiva/pages/caridoctor/CariDoctor.dart';
+import 'package:posithiva/pages/obatku/ObatKuPage.dart';
+import 'package:posithiva/pages/riwayatkonsul/RiwayatKonsultasi.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 
-class ObatkuPage extends StatefulWidget {
-  const ObatkuPage({super.key});
+class CommRuangBerdaya extends StatefulWidget {
+  const CommRuangBerdaya({super.key});
 
   @override
-  State<ObatkuPage> createState() => _ObatkuPageState();
+  State<CommRuangBerdaya> createState() => _CommRuangBerdayaState();
 }
 
-class _ObatkuPageState extends State<ObatkuPage> {
+class _CommRuangBerdayaState extends State<CommRuangBerdaya> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -40,31 +42,17 @@ class _ObatkuPageState extends State<ObatkuPage> {
           },
         ),
         title: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               "Lokasi Terkini",
-              style: poppins.copyWith(color: Colors.grey, fontSize: 14),
+              style: poppins.copyWith(color: Colors.grey, fontSize: 12),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.location_on,
-                  color: Colors.blue,
-                  size: 15,
-                ),
-                const SizedBox(
-                  width: 3,
-                ),
-                Text(
-                  "Singaraja",
-                  style: poppins.copyWith(
-                      color: Colors.black,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
+            Text(
+              "Singaraja",
+              style: poppins.copyWith(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
             )
           ],
         ),
@@ -121,7 +109,10 @@ class _ObatkuPageState extends State<ObatkuPage> {
               ),
               GestureDetector(
                 onTap: () {
-                  print("Halo");
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return ObatkuPage();
+                  }));
                 },
                 child: Container(
                   width: 193,
@@ -132,7 +123,79 @@ class _ObatkuPageState extends State<ObatkuPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10), color: birutua),
                   child: Text(
-                    "Pasienku",
+                    "Obatku",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const CariDoctor();
+                  }));
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Cari Dokter",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const ArvPage();
+                  }));
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Info ARV-ku",
+                    style: lato.copyWith(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 22),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const RiwayatKonsultasi();
+                  }));
+                },
+                child: Container(
+                  width: 193,
+                  height: 88,
+                  alignment: Alignment.centerLeft,
+                  margin: const EdgeInsets.only(top: 20),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10), color: birutua),
+                  child: Text(
+                    "Riwayat Konsultasi",
                     style: lato.copyWith(
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
@@ -153,7 +216,7 @@ class _ObatkuPageState extends State<ObatkuPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10), color: birutua),
                   child: Text(
-                    "Jadwalku",
+                    "Kalender Berobat",
                     style: lato.copyWith(
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
@@ -174,28 +237,7 @@ class _ObatkuPageState extends State<ObatkuPage> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10), color: birutua),
                   child: Text(
-                    "Praktekku",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Layanan Kirim Obat Pasien",
+                    "Ruang Berdaya",
                     style: lato.copyWith(
                         color: Colors.white,
                         fontStyle: FontStyle.italic,
@@ -262,17 +304,17 @@ class _ObatkuPageState extends State<ObatkuPage> {
                               color: Colors.black, fontSize: 10),
                         ),
                         Text(
-                          "Andreana \nSusilo",
+                          "Mario \nMariono",
                           textAlign: TextAlign.left,
                           style: poppins.copyWith(
                               color: Colors.black,
-                              fontSize: 15,
+                              fontSize: 17,
                               fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          "STR 1729263",
+                          "BPJS. 7292614 111 391",
                           style: poppins.copyWith(
-                              color: Colors.black, fontSize: 10),
+                              color: Colors.black, fontSize: 8),
                         )
                       ],
                     ),
@@ -379,7 +421,7 @@ class _ObatkuPageState extends State<ObatkuPage> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const LoginPageDoctor();
+                        return const LoginPage();
                       }));
                     },
                     child: Text(
@@ -396,248 +438,188 @@ class _ObatkuPageState extends State<ObatkuPage> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 120,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Row(
-                  children: [
-                    Image.asset(
-                      "assets/images/back.png",
-                      width: 15,
-                      height: 15,
-                    ),
-                    const SizedBox(
-                      width: 6,
-                    ),
-                    Text(
-                      "Kembali",
-                      style: poppins.copyWith(color: Colors.white),
-                    )
-                  ],
-                ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(birutua)),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              "Obatku",
-              style: poppins.copyWith(
-                  fontSize: 25, color: birutua, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 8),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(
-                "Taily Counter ARV-ku",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black),
-              ),
-              Icon(
-                Icons.info,
-                color: birutua,
-                size: 20,
-              ),
-            ]),
-            const SizedBox(height: 8),
-            Stack(
-              children: [
-                Container(
-                  width: width,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10)),
-                ),
-                Positioned(
-                  top: 8,
-                  left: 13,
-                  right: 0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 120,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Row(
                     children: [
-                      Text(
-                        "QR ARV",
-                        style: poppins.copyWith(fontSize: 8),
+                      Image.asset(
+                        "assets/images/back.png",
+                        width: 15,
+                        height: 15,
                       ),
+                      const SizedBox(
+                        width: 6,
+                      ),
+                      Text(
+                        "Kembali",
+                        style: poppins.copyWith(color: Colors.white),
+                      )
                     ],
                   ),
-                )
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text("Sistem Antrean Ambil Obat [ON-SITE]",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
-            const SizedBox(
-              height: 8,
-            ),
-            Stack(children: [
-              Container(
-                  width: width,
-                  height: 200,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10))),
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  alignment: Alignment.center,
-                  width: 400,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  height: 45,
-                  color: Colors.white,
-                  child: Column(children: [
-                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
-                        style: poppins.copyWith(
-                            fontSize: 8, fontStyle: FontStyle.italic)),
-                    Text('PUSKESMAS BULELENG 1',
-                        style: poppins.copyWith(fontSize: 15, color: birutua))
-                  ])),
-              Container(
-                  margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                  width: 400,
-                  height: 70,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: birumuda2,
-                  ),
-                  padding: const EdgeInsets.all(20),
-                  child: Text('AMBIL PENGAMBILAN OBAT TERSISA',
-                      style:
-                          poppins.copyWith(fontSize: 15, color: Colors.white))),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const NomorAntrian();
-                  }));
-                },
-                child: Container(
-                    margin: const EdgeInsets.only(top: 135, right: 8, left: 8),
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 45,
-                    color: birutua,
-                    child: Center(
-                      child: Text('AMBIL NOMOR ANTRIAN',
-                          style: poppins.copyWith(
-                              fontSize: 15, color: Colors.white)),
-                    )),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll(birutua)),
+                ),
               ),
-            ]),
-            const SizedBox(height: 20),
-            Text("Kirim Obat [ON-LINE]",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
-            const SizedBox(
-              height: 8,
-            ),
-            Stack(children: [
-              Container(
-                  width: width,
-                  height: 200,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10))),
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  alignment: Alignment.center,
-                  width: 400,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  height: 45,
-                  color: Colors.white,
-                  child: Column(children: [
-                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
-                        style: poppins.copyWith(
-                            fontSize: 8, fontStyle: FontStyle.italic)),
-                    Text('PUSKESMAS BULELENG 1',
-                        style: poppins.copyWith(fontSize: 15, color: birutua))
-                  ])),
-              Row(
-                children: [
-                  Container(
-                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                      width: 160,
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: birumuda3,
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        children: [
-                          Text(
-                            'KURIR \n REGULER',
-                            style: poppins.copyWith(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('EST.3-5 HARI KERJA',
-                              style: poppins.copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100)),
-                        ],
-                      )),
-                  const SizedBox(width: 3),
-                  Container(
-                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                      width: 160,
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: birumuda3,
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        children: [
-                          Text(
-                            'KURIR \n INSTAN',
-                            style: poppins.copyWith(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('EST.1-2 JAM KERJA',
-                              style: poppins.copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100)),
-                        ],
-                      )),
-                ],
+              const SizedBox(
+                height: 30,
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const ObatSaya();
-                  }));
-                },
-                child: Container(
-                    margin: const EdgeInsets.only(top: 146, right: 8, left: 8),
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 45,
-                    color: birutua,
-                    child: Center(
-                      child: Text('KIRIM OBAT SAYA',
-                          style: poppins.copyWith(
-                              fontSize: 15, color: Colors.white)),
-                    )),
+              Text(
+                "Ruang Berdaya",
+                style: lora.copyWith(fontSize: 35, color: birutua),
               ),
-            ]),
-          ],
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: width,
+                height: height - 200,
+                child: ListView.builder(
+                    itemCount: 10,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, index) {
+                      return Container(
+                        width: width,
+                        height: 230,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8, vertical: 10),
+                        decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(
+                                  color: Color.fromARGB(255, 158, 158, 158),
+                                  width: 2)),
+                          color: Colors.grey[200],
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/avatar.png",
+                                  scale: 0.7,
+                                ),
+                                const SizedBox(
+                                  width: 6,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Mario Mariono",
+                                      style: poppins.copyWith(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      "UVI-TLD",
+                                      style: poppins.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w100),
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
+                            Container(
+                              width: width,
+                              height: 100,
+                              margin: const EdgeInsets.only(top: 10),
+                              child: RichText(
+                                  text: TextSpan(
+                                style: poppins.copyWith(
+                                    fontSize: 14, fontWeight: FontWeight.w100),
+                                children: [
+                                  TextSpan(
+                                      text:
+                                          "Halo,saya Mario! Sudah berobat 2 tahun,Mau Tanya,disini mungkin ada rekan-rekan yang mau berbagi pengalaman berobatnya..."),
+                                  TextSpan(
+                                      text: "(lihat lagi)",
+                                      style: poppins.copyWith(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w100,
+                                          color: Colors.blue))
+                                ],
+                              )),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            SizedBox(
+                              width: width,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: 100,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.comment_outlined,
+                                              size: 20,
+                                              color: Colors.grey,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              "2",
+                                              style: poppins.copyWith(
+                                                  fontSize: 15,
+                                                  color: Colors.grey),
+                                            )
+                                          ],
+                                        ),
+                                        Row(
+                                          children: [
+                                            Icon(
+                                              Icons.favorite_outline_outlined,
+                                              size: 20,
+                                              color: Colors.grey,
+                                            ),
+                                            const SizedBox(
+                                              width: 4,
+                                            ),
+                                            Text(
+                                              "5",
+                                              style: poppins.copyWith(
+                                                  fontSize: 15,
+                                                  color: Colors.grey),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.file_upload_outlined,
+                                    size: 20,
+                                    color: Colors.grey,
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }

@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
-import 'package:posithiva/pages/obatku/NomorAntrian.dart';
-import 'package:posithiva/pages/obatku/ObatSaya.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
 
-class ObatkuPage extends StatefulWidget {
-  const ObatkuPage({super.key});
+class NomorAntrian extends StatefulWidget {
+  const NomorAntrian({super.key});
 
   @override
-  State<ObatkuPage> createState() => _ObatkuPageState();
+  State<NomorAntrian> createState() => _NomorAntrianState();
 }
 
-class _ObatkuPageState extends State<ObatkuPage> {
+class _NomorAntrianState extends State<NomorAntrian> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -396,248 +394,124 @@ class _ObatkuPageState extends State<ObatkuPage> {
         ),
       ),
       body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 120,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 100,
+              ),
+              Center(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      "assets/images/back.png",
-                      width: 15,
-                      height: 15,
+                    Container(
+                      width: 75,
+                      height: 75,
+                      padding: const EdgeInsets.all(8),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.green[900],
+                          borderRadius: BorderRadius.circular(75 / 2)),
+                      child: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                        size: 60,
+                      ),
                     ),
                     const SizedBox(
-                      width: 6,
+                      width: 10,
                     ),
                     Text(
-                      "Kembali",
-                      style: poppins.copyWith(color: Colors.white),
+                      "15",
+                      style: lora.copyWith(
+                        fontSize: 60,
+                        color: birutua,
+                        fontWeight: FontWeight.bold,
+                      ),
                     )
                   ],
                 ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(birutua)),
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              "Obatku",
-              style: poppins.copyWith(
-                  fontSize: 25, color: birutua, fontWeight: FontWeight.w600),
-            ),
-            const SizedBox(height: 8),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(
-                "Taily Counter ARV-ku",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black),
+              const SizedBox(
+                height: 40,
               ),
-              Icon(
-                Icons.info,
-                color: birutua,
-                size: 20,
-              ),
-            ]),
-            const SizedBox(height: 8),
-            Stack(
-              children: [
-                Container(
-                  width: width,
-                  height: 100,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10)),
+              SizedBox(
+                width: width,
+                height: 50,
+                child: TextFormField(
+                  style: poppins.copyWith(fontSize: 12),
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      labelText: "Nama Lengkap (Sesuai KTP),",
+                      labelStyle:
+                          poppins.copyWith(fontSize: 12, color: Colors.grey)),
                 ),
-                Positioned(
-                  top: 8,
-                  left: 13,
-                  right: 0,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "QR ARV",
-                        style: poppins.copyWith(fontSize: 8),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
-            const SizedBox(height: 20),
-            Text("Sistem Antrean Ambil Obat [ON-SITE]",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
-            const SizedBox(
-              height: 8,
-            ),
-            Stack(children: [
-              Container(
-                  width: width,
-                  height: 200,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10))),
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  alignment: Alignment.center,
-                  width: 400,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  height: 45,
-                  color: Colors.white,
-                  child: Column(children: [
-                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
-                        style: poppins.copyWith(
-                            fontSize: 8, fontStyle: FontStyle.italic)),
-                    Text('PUSKESMAS BULELENG 1',
-                        style: poppins.copyWith(fontSize: 15, color: birutua))
-                  ])),
-              Container(
-                  margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                  width: 400,
-                  height: 70,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: birumuda2,
-                  ),
-                  padding: const EdgeInsets.all(20),
-                  child: Text('AMBIL PENGAMBILAN OBAT TERSISA',
-                      style:
-                          poppins.copyWith(fontSize: 15, color: Colors.white))),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const NomorAntrian();
-                  }));
-                },
-                child: Container(
-                    margin: const EdgeInsets.only(top: 135, right: 8, left: 8),
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 45,
-                    color: birutua,
-                    child: Center(
-                      child: Text('AMBIL NOMOR ANTRIAN',
-                          style: poppins.copyWith(
-                              fontSize: 15, color: Colors.white)),
+              ),
+              const SizedBox(
+                height: 11,
+              ),
+              SizedBox(
+                width: width,
+                height: 50,
+                child: TextFormField(
+                  style: poppins.copyWith(fontSize: 12),
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      labelText: "Alamat Domisili",
+                      labelStyle:
+                          poppins.copyWith(fontSize: 12, color: Colors.grey)),
+                ),
+              ),
+              const SizedBox(
+                height: 11,
+              ),
+              SizedBox(
+                width: width,
+                height: 50,
+                child: TextFormField(
+                  style: poppins.copyWith(fontSize: 12),
+                  decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[100],
+                      border: const OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      labelText: "Username / Email",
+                      labelStyle:
+                          poppins.copyWith(fontSize: 12, color: Colors.grey)),
+                ),
+              ),
+              SizedBox(
+                height: 330,
+              ),
+              SizedBox(
+                width: width,
+                height: 45,
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStatePropertyAll(birutua)),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      "KEMBALI",
+                      style: lato.copyWith(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                     )),
               ),
-            ]),
-            const SizedBox(height: 20),
-            Text("Kirim Obat [ON-LINE]",
-                style: poppins.copyWith(fontSize: 16, color: Colors.black)),
-            const SizedBox(
-              height: 8,
-            ),
-            Stack(children: [
-              Container(
-                  width: width,
-                  height: 200,
-                  decoration: BoxDecoration(
-                      color: biruabu, borderRadius: BorderRadius.circular(10))),
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 4),
-                  alignment: Alignment.center,
-                  width: 400,
-                  margin:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-                  height: 45,
-                  color: Colors.white,
-                  child: Column(children: [
-                    Text('FASILITAS KESEHATAN PENGAMBILAN OBAT',
-                        style: poppins.copyWith(
-                            fontSize: 8, fontStyle: FontStyle.italic)),
-                    Text('PUSKESMAS BULELENG 1',
-                        style: poppins.copyWith(fontSize: 15, color: birutua))
-                  ])),
-              Row(
-                children: [
-                  Container(
-                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                      width: 160,
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: birumuda3,
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        children: [
-                          Text(
-                            'KURIR \n REGULER',
-                            style: poppins.copyWith(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('EST.3-5 HARI KERJA',
-                              style: poppins.copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100)),
-                        ],
-                      )),
-                  const SizedBox(width: 3),
-                  Container(
-                      margin: const EdgeInsets.only(top: 60, right: 8, left: 8),
-                      width: 160,
-                      height: 80,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: birumuda3,
-                      ),
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      child: Column(
-                        children: [
-                          Text(
-                            'KURIR \n INSTAN',
-                            style: poppins.copyWith(
-                                fontSize: 15,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text('EST.1-2 JAM KERJA',
-                              style: poppins.copyWith(
-                                  fontSize: 10,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w100)),
-                        ],
-                      )),
-                ],
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return const ObatSaya();
-                  }));
-                },
-                child: Container(
-                    margin: const EdgeInsets.only(top: 146, right: 8, left: 8),
-                    padding: EdgeInsets.symmetric(vertical: 4),
-                    alignment: Alignment.center,
-                    width: 400,
-                    height: 45,
-                    color: birutua,
-                    child: Center(
-                      child: Text('KIRIM OBAT SAYA',
-                          style: poppins.copyWith(
-                              fontSize: 15, color: Colors.white)),
-                    )),
-              ),
-            ]),
-          ],
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
