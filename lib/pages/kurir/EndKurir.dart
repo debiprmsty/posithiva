@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/component/myappBar.dart';
-import 'package:posithiva/pages/HomePageUser.dart';
+import 'package:posithiva/pages/obatku/ObatKuPage.dart';
 import 'package:posithiva/theme.dart';
 
-class JanjiTemuEndPage extends StatefulWidget {
-  const JanjiTemuEndPage({super.key});
+class EndKurir extends StatefulWidget {
+  const EndKurir({super.key});
 
   @override
-  State<JanjiTemuEndPage> createState() => _JanjiTemuEndPageState();
+  State<EndKurir> createState() => _EndKurirState();
 }
 
-class _JanjiTemuEndPageState extends State<JanjiTemuEndPage> {
+class _EndKurirState extends State<EndKurir> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -25,7 +25,8 @@ class _JanjiTemuEndPageState extends State<JanjiTemuEndPage> {
           builder: (context) {
             return GestureDetector(
               onTap: () {
-                Scaffold.of(context).openDrawer(); // Membuka Drawer saat leading gambar diklik
+                Scaffold.of(context)
+                    .openDrawer(); // Membuka Drawer saat leading gambar diklik
               },
               child: Image.asset(
                 "assets/images/drawer.png",
@@ -38,22 +39,31 @@ class _JanjiTemuEndPageState extends State<JanjiTemuEndPage> {
         ),
         title: Column(
           children: [
-            Text("Lokasi Terkini",style: poppins.copyWith(color: Colors.grey,fontSize: 12),),
-            Text("Singaraja",style: poppins.copyWith(color: Colors.black,fontSize: 15,fontWeight: FontWeight.bold),)
+            Text(
+              "Lokasi Terkini",
+              style: poppins.copyWith(color: Colors.grey, fontSize: 12),
+            ),
+            Text(
+              "Singaraja",
+              style: poppins.copyWith(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+            )
           ],
         ),
         actions: [
           Container(
             margin: const EdgeInsets.only(right: 15),
-            child: Builder(
-              builder: (context) {
-                return GestureDetector(
+            child: Builder(builder: (context) {
+              return GestureDetector(
                   onTap: () {
-                    Scaffold.of(context).openEndDrawer(); // Membuka Drawer saat leading gambar diklik
+                    Scaffold.of(context)
+                        .openEndDrawer(); // Membuka Drawer saat leading gambar diklik
                   },
-                  child: Image.asset("assets/images/avatar.png", width: 30, height: 30));
-              }
-            ),
+                  child: Image.asset("assets/images/avatar.png",
+                      width: 30, height: 30));
+            }),
           ),
         ],
         centerTitle: true,
@@ -63,13 +73,19 @@ class _JanjiTemuEndPageState extends State<JanjiTemuEndPage> {
       body: SingleChildScrollView(
         child: Center(
           child: Container(
+            margin: EdgeInsets.only(top: 15),
             color: Colors.white,
             width: 360,
             height: height * 1.05,
             child: Column(
               children: [
                 const SizedBox(
-                  height: 250,
+                  height: 35,
+                ),
+                Text("Terima Kasih", style: lato.copyWith(fontSize: 42,color: Colors.black, fontWeight: FontWeight.bold),),
+                Text("Data Anda Telah Tersimpan", style: poppins.copyWith(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w500),),
+                const SizedBox(
+                  height: 70,
                 ),
                 Container(
                   alignment: Alignment.center,
@@ -82,32 +98,26 @@ class _JanjiTemuEndPageState extends State<JanjiTemuEndPage> {
                   child: Icon(Icons.check,color: Colors.white,size: 180,)
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 80,
                 ),
-                Text("Janji Konsultasi \n Berhasil Dibuat", style: latoItalic.copyWith(fontSize: 25, color: Colors.black, fontWeight: FontWeight.w500, fontStyle: FontStyle.italic), textAlign: TextAlign.center,),
+                Text("Selanjutnya kami akan menghubungi \n melalui nomor Whatsapp anda", style: lato.copyWith(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
                 const SizedBox(
-                  height: 200,
+                  height: 210,
                 ),
-                Container(
+                SizedBox(
                   width: width,
-                  height: 48,
+                  height: 50,
                   child: ElevatedButton(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(birutua),
-                      shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
+                      backgroundColor: MaterialStatePropertyAll(birutua)
                     ),
-                    onPressed: () {
+                    onPressed: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return const HomePageUser();
+                        return const ObatkuPage();
                       }));
-                    },
-                    child: Text('KEMBALI KE BERANDA', style: lato.copyWith(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 20),)
-                  ),
-                ),
+                    }, 
+                    child: Text("KEMBALI",style: poppins.copyWith(fontSize: 22,color: Colors.white,fontWeight: FontWeight.w600),)),
+                )
               ],
             ),
           ),

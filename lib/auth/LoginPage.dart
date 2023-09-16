@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 80,
               ),
               Container(
-                height: height * 0.5 + 130,
+                height: height * 0.5 + 150,
                 width: 320,
                 child: Form(
                   key: _formKey,
@@ -110,8 +110,8 @@ class _LoginPageState extends State<LoginPage> {
                         height: 40,
                       ),
                       Container(
-                        width: 184,
-                        height: 44,
+                        width: 195,
+                        height: 45,
                         child: ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStatePropertyAll(birutua),
@@ -130,14 +130,14 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 80,
+                        height: 120,
                       ),
                       Text('BELUM PUNYA AKUN?', style: poppins.copyWith(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 15), textAlign: TextAlign.center,),
                       const SizedBox(
                         height: 3,
                       ),
                       Container(
-                        width: 165,
+                        width: 175,
                         height: 36,
                         child: ElevatedButton(
                           style: ButtonStyle(

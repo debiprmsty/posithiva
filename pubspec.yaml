@@ -81,7 +81,13 @@ flutter:
     - family: Lato
       fonts:
         - asset: assets/fonts/Lato-Regular.ttf
+    - family: LatoItalic
+      fonts:
+        - asset: assets/fonts/Lato-Italic.ttf
     - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-VariableFont_wght.ttf
+    - family: LoraItalic
       fonts:
         - asset: assets/fonts/Lora-Italic-VariableFont_wght.ttf
     - family: Poppins

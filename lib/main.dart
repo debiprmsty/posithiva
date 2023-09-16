@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
-import 'package:posithiva/auth/RegisterPage.dart';
-import 'package:posithiva/kurir/EndKurir.dart';
-import 'package:posithiva/kurir/KurirInstan.dart';
-import 'package:posithiva/kurir/KurirReguler.dart';
+
 
 
 void main() {

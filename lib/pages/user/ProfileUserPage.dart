@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:posithiva/component/myappBar.dart';
 import 'package:posithiva/theme.dart';
 
 class ProfilUserPage extends StatefulWidget {
@@ -78,6 +79,8 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
         ],
         centerTitle: true,
       ),
+      drawer: AppDrawer(),
+      endDrawer : EndDrawer(),
       body: SingleChildScrollView(
         child: Center(
           child: Container(
@@ -115,20 +118,13 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                   ),
                   child: Row(
                     children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 120,
-                            width: 120,
-                            margin: const EdgeInsets.only(bottom: 7),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey[600],
-                              image: DecorationImage(image: AssetImage("assets/images/avatar.png",),fit: BoxFit.cover)
-                            ),
-                          ),
-                        ],
+                      Container(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(
+                            "assets/images/avatar_grey.png",
+                            scale: 0.5,
+                          )),
                       ),
                       const SizedBox(
                         width: 15,

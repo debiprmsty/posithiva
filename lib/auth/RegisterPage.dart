@@ -197,32 +197,34 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 18,
                       ),
                       SizedBox(
-                          child: Row(
-                        children: [
-                          Checkbox(
-                            value: isChecked,
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isChecked = value!;
-                              });
-                            },
-                          ),
-                          const SizedBox(width: 8),
-                          Container(
-                            width: 235,
-                            height: 100,
-                            child: Text(
-                              "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
-                              style: poppins.copyWith(
-                                  color: Colors.grey,
-                                  fontStyle: FontStyle.italic),
-                              textAlign: TextAlign.justify,
+                        child: Row(
+                          children: [
+                            Checkbox(
+                              value: isChecked,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isChecked = value!;
+                                });
+                              },
                             ),
-                          ),
-                        ],
-                      )),
+                            const SizedBox(width: 8),
+                            Container(
+                              width: 280,
+                              height: 120,
+                              child: Text(
+                                "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
+                                style: latoItalic.copyWith(
+                                    color: Colors.grey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+                          ],
+                        )
+                      ),
                       const SizedBox(
-                        height: 80,
+                        height: 40,
                       ),
                       Container(
                         width: 320,
@@ -241,7 +243,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               return const RegisterPage();
                             }));
                           },
-                          child: Text('DAFTAR', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 20),)
+                          child: Text('DAFTAR', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
                         ),
                       ),
                     ],

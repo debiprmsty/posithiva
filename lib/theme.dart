@@ -10,8 +10,8 @@ Color biruabu3 = const Color(0xFFE2E3F0);
 Color magnolia = const Color(0xFFECE8EF);
 Color abu = const Color(0xFFF5F5F5);
 
-TextStyle lora = const TextStyle(
-  fontFamily: 'Lora',
-);
+TextStyle lora = const TextStyle(fontFamily: 'Lora');
+TextStyle loraItalic = const TextStyle(fontFamily: 'LoraItalic');
 TextStyle lato = const TextStyle(fontFamily: 'Lato');
+TextStyle latoItalic = const TextStyle(fontFamily: 'LatoItalic');
 TextStyle poppins = const TextStyle(fontFamily: 'Poppins');

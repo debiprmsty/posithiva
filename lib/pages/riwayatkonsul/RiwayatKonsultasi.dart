@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:posithiva/pages/obatku/ObatKuPage.dart';
+import 'package:posithiva/component/myappBar.dart';
 import 'package:posithiva/pages/riwayatkonsul/DetailRiwayatKonsul.dart';
 import 'package:posithiva/theme.dart';
 
@@ -68,209 +68,34 @@ class _RiwayatKonsultasiState extends State<RiwayatKonsultasi> {
         ],
         centerTitle: true,
       ),
-      drawer: Drawer(
-        backgroundColor: biruabu,
-        width: width - width * 0.5 + 30,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          child: ListView(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Row(
-                      children: [
-                        Image.asset(
-                          "assets/images/back.png",
-                          width: 15,
-                          height: 15,
-                        ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          "Kembali",
-                          style: poppins.copyWith(color: Colors.white),
-                        )
-                      ],
-                    ),
-                    style: ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(birutua)),
-                  )
-                ],
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) {
-                    return ObatkuPage();
-                  }));
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Obatku",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Riwayat Konsultasi",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Info ARV-ku",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Riwayat Konsultasi",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Kalender Berobat",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  print("Halo");
-                },
-                child: Container(
-                  width: 193,
-                  height: 88,
-                  alignment: Alignment.centerLeft,
-                  margin: const EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10), color: birutua),
-                  child: Text(
-                    "Ruang Berdaya",
-                    style: lato.copyWith(
-                        color: Colors.white,
-                        fontStyle: FontStyle.italic,
-                        fontSize: 22),
-                  ),
-                ),
-              ),
-              // Tambahkan item-menu atau widget lainnya di sini
-            ],
-          ),
-        ),
-      ),
+      drawer: AppDrawer(),
+      endDrawer : EndDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                width: 120,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/back.png",
-                        width: 15,
-                        height: 15,
-                      ),
-                      const SizedBox(
-                        width: 6,
-                      ),
-                      Text(
-                        "Kembali",
-                        style: poppins.copyWith(color: Colors.white),
-                      )
-                    ],
-                  ),
-                  style: ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(birutua)),
+              Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ElevatedButton(onPressed: (){
+                  Navigator.of(context).pop();
+                }, 
+                child: Row(
+                  children: [
+                    Image.asset("assets/images/back.png",width: 15,height: 15,),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Text("Kembali",style: poppins.copyWith(color: Colors.white),)
+                  ],
                 ),
+                  style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(birutua)),)
+                ],
               ),
               const SizedBox(
-                height: 30,
+                height: 15,
               ),
               Text(
                 "Riwayat Konsultasi",
@@ -286,9 +111,9 @@ class _RiwayatKonsultasiState extends State<RiwayatKonsultasi> {
                     itemBuilder: (BuildContext context, index) {
                       return Container(
                         padding: const EdgeInsets.all(8),
-                        margin: const EdgeInsets.only(bottom: 8),
+                        margin: const EdgeInsets.only(bottom: 10),
                         width: width,
-                        height: 200,
+                        height: 178,
                         decoration: BoxDecoration(
                           color: birutua,
                           borderRadius: BorderRadius.circular(10),
@@ -297,15 +122,15 @@ class _RiwayatKonsultasiState extends State<RiwayatKonsultasi> {
                           children: [
                             Row(
                               children: [
-                                Container(
-                                  padding: const EdgeInsets.all(8),
-                                  margin: const EdgeInsets.only(bottom: 12),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(2),
-                                      child: Image.asset(
-                                        "assets/images/hu1.png",
-                                        scale: 0.5,
-                                      )),
+                                Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Container(
+                                    margin: const EdgeInsets.only(bottom: 12),
+                                    child: Image.asset(
+                                      "assets/images/hu1.png",
+                                      scale: 0.5,
+                                    ),
+                                  ),
                                 ),
                                 const SizedBox(
                                   width: 5,
@@ -314,91 +139,94 @@ class _RiwayatKonsultasiState extends State<RiwayatKonsultasi> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "dr.Andrea Susilo",
-                                      style: lato.copyWith(
-                                          fontSize: 20, color: Colors.white),
+                                      "dr. Andreana Susilo",
+                                      style: lora.copyWith(
+                                          fontSize: 22, color: Colors.white),
                                     ),
                                     Text(
-                                      "Puskesmas Buleleng 1",
-                                      style: lato.copyWith(color: Colors.white),
-                                    ),
-                                    const SizedBox(
-                                      height: 4,
+                                      "Puskesmas Buleleng I",
+                                      style: lato.copyWith(color: Colors.white, fontSize: 16.9),
                                     ),
                                     Text(
                                       "Senin 10 Juli 2023 | 18.34 WITA",
-                                      style: lato.copyWith(color: Colors.white),
+                                      style: lato.copyWith(color: Colors.white, fontSize: 16.9),
                                     ),
                                     const SizedBox(
                                       height: 4,
                                     ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          width: 90,
-                                          height: 20,
-                                          margin:
-                                              const EdgeInsets.only(bottom: 5),
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey[400],
-                                              borderRadius:
-                                                  BorderRadius.circular(20)),
-                                          child: Stack(
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Image.asset(
-                                                    "assets/images/check.png",
-                                                    width: 40,
-                                                    height: 75,
+                                    Container(
+                                      width: 88,
+                                      height: 18,
+                                      margin: const EdgeInsets.only(bottom: 15),
+                                      decoration: BoxDecoration(
+                                          color: Colors.grey[350],
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
+                                      child: Stack(
+                                        children: [
+                                          Positioned(
+                                            top: -1,
+                                            left: 0,
+                                            bottom: -1,
+                                            child: Row(
+                                              children: [
+                                                Image.asset(
+                                                  "assets/images/check.png",
+                                                  scale: 0.7,
+                                                ),
+                                                const SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.only(bottom: 4),
+                                                  child: Container(
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      "ONLINE",
+                                                      style:
+                                                          lato.copyWith(fontSize: 14.5, color: Colors.black),
+                                                          textAlign: TextAlign.center,
+                                                    ),
                                                   ),
-                                                  Text(
-                                                    "ONLINE",
-                                                    style: lato.copyWith(
-                                                        fontSize: 11),
-                                                  )
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    )
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 2,
-                            ),
                             Container(
-                                margin:
-                                    const EdgeInsets.symmetric(horizontal: 7),
-                                width: width,
-                                height: 40,
-                                child: ElevatedButton(
-                                    style: ButtonStyle(
-                                        padding: MaterialStatePropertyAll(
-                                            EdgeInsets.symmetric(
-                                                horizontal: 12, vertical: 2)),
-                                        backgroundColor:
-                                            MaterialStatePropertyAll(
-                                                Colors.orange[800])),
-                                    onPressed: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(builder: (context) {
-                                        return const DetailRiwayatKonsul();
-                                      }));
-                                    },
-                                    child: Text(
-                                      "BUAT JADWAL KONSULTASI",
-                                      style: lato.copyWith(
-                                          fontSize: 13,
-                                          color: const Color.fromARGB(
-                                              255, 218, 212, 212)),
-                                    )))
+                              margin: const EdgeInsets.symmetric(horizontal: 7),
+                              width: width,
+                              height: 40,
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  padding: MaterialStatePropertyAll(
+                                    EdgeInsets.symmetric(horizontal: 12, vertical: 2)
+                                  ),
+                                  backgroundColor: MaterialStatePropertyAll(Colors.orange[700]),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai radius sesuai kebutuhan
+                                    ),
+                                  ),
+                                ),
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (context) {
+                                  return const DetailRiwayatKonsul();
+                                }));
+                              },
+                              child: Text(
+                                "LIHAT HISTORI KONSULTASI",
+                                style: lato.copyWith(
+                                    fontSize: 18, color: Colors.white),
+                              ))
+                            )
                           ],
                         ),
                       );
