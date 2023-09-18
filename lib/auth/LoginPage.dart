@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                           controller: nomor_bpjs,
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'NO BPJS boleh kosong';
+                              return 'NO BPJS tidak boleh kosong';
                             }
                             return null;
                           },

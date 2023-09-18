@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
+import 'package:posithiva/pages/SplashScreen.dart';
 
 
 
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'POSITHIVA',
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: SplashScreen(),
     );
   }
 }
+
+

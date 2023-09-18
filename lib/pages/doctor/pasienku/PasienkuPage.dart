@@ -61,7 +61,7 @@ class _PasienkuPageState extends State<PasienkuPage> {
                   onTap: () {
                     Scaffold.of(context).openEndDrawer(); // Membuka Drawer saat leading gambar diklik
                   },
-                  child: Image.asset("assets/images/profile.png", width: 30, height: 30));
+                  child: Image.asset("assets/images/avatar.png", width: 30, height: 30));
               }
             ),
           ),

@@ -92,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   height: height * 0.25,
                   child: Image.asset('assets/images/logo.png', width: 150, height: 150,)),
               Container(
-                height: height * 0.5 + 270,
+                height: height * 0.5 + 300,
                 width: 320,
                 child: Form(
                   key: _formKey,
@@ -101,6 +101,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         style: poppins,
                         controller: _namaController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Nama tidak boleh kosong';
+                          }
+                          return null;
+                        },
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                             labelText: 'Nama Lengkap (Sesuai KTP)',
@@ -118,6 +124,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         style: poppins,
                         controller: _alamatController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Alamat tidak boleh kosong';
+                          }
+                          return null;
+                        },
                         keyboardType: TextInputType.streetAddress,
                         decoration: InputDecoration(
                             labelText: 'Alamat Domisili',
@@ -135,6 +147,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         style: poppins,
                         controller: _usernameController,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Username/email tidak boleh kosong';
+                          }
+                          return null;
+                        },
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                             labelText: 'Username/Email',
@@ -186,6 +204,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       TextFormField(
                         style: poppins,
                         controller: _no_bpjs,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'NO BPJS tidak boleh kosong';
+                          }
+                          return null;
+                        },
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                             labelText: 'No BPJS',
@@ -228,7 +252,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         )
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 30,
                       ),
                       Container(
                         width: 320,
