@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:posithiva/api/auth.dart';
+import 'package:posithiva/auth/LoginPage.dart';
 import 'package:posithiva/theme.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -16,6 +18,8 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _no_bpjs = TextEditingController();
    String _email = '', _password = '';
+
+  final AuthController _authController = AuthController();
 
   bool isChecked = false;
   bool _showPassword = false;
@@ -209,7 +213,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             const SizedBox(width: 8),
                             Container(
-                              width: 280,
+                              width: 260,
                               height: 120,
                               child: Text(
                                 "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
@@ -238,10 +242,39 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             ),
                           ),
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const RegisterPage();
-                            }));
+                          onPressed: () async {
+
+                            if(_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+
+                              String name = _namaController.text;
+                              String email = _usernameController.text;
+                              String password = _passwordController.text;
+                              String alamat  = _alamatController.text;
+                              String no_bpjs = _no_bpjs.text;
+
+                              await _authController.register(name, email, password, alamat, no_bpjs).then((value) => {
+                                if(value['success'] == true) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text('Registrasi berhasil!'),
+                                        duration: Duration(seconds: 2), // Durasi notifikasi
+                                      ),
+                                    ),
+
+                                    // Navigasi ke halaman login setelah notifikasi ditampilkan
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                                      return LoginPage(); // Gantilah LoginPage dengan nama kelas halaman login Anda
+                                    }))
+                                }
+                              });
+
+                            }
+
+
+                            // Navigator.push(context, MaterialPageRoute(builder: (context){
+                            //   return const RegisterPage();
+                            // }));
                           },
                           child: Text('DAFTAR', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
                         ),

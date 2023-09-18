@@ -86,7 +86,7 @@ class _KurirRegulerState extends State<KurirReguler> {
             margin: EdgeInsets.only(top: 15),
             color: Colors.white,
             width: 360,
-            height: height * 1.05,
+            height: height * 1.1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

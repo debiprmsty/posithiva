@@ -106,7 +106,7 @@ class _CommRuangBerdayaState extends State<CommRuangBerdaya> {
               ),
               Text(
                 "Ruang Berdaya",
-                style: lora.copyWith(fontSize: 35, color: birutua),
+                style: loraItalic.copyWith(fontSize: 35, color: birutua),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 12),
@@ -167,7 +167,7 @@ class _CommRuangBerdayaState extends State<CommRuangBerdaya> {
                               child: RichText(
                                   text: TextSpan(
                                 style: poppins.copyWith(
-                                    fontSize: 14, fontWeight: FontWeight.w100),
+                                    fontSize: 14, fontWeight: FontWeight.w100,color: Colors.grey[500]),
                                 children: [
                                   TextSpan(
                                       text:

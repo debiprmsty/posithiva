@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:posithiva/api/auth.dart';
 import 'package:posithiva/pages/doctor/HomePageNakes.dart';
 import 'package:posithiva/theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginPageDoctor extends StatefulWidget {
   const LoginPageDoctor({super.key});
@@ -16,6 +18,9 @@ class _LoginPageDoctorState extends State<LoginPageDoctor> {
   String _email = '', _password = '';
 
   bool _showPassword = false;
+
+  
+  final AuthController _authController = AuthController();
 
   @override
   void dispose() {
@@ -81,6 +86,12 @@ class _LoginPageDoctorState extends State<LoginPageDoctor> {
                         style: poppins,
                         controller: _usernameController,
                         keyboardType: TextInputType.name,
+                        validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Username/email tidak boleh kosong';
+                            }
+                            return null;
+                          },
                         decoration: InputDecoration(
                             labelText: 'Username/Email',
                             labelStyle: poppins.copyWith(color: Colors.grey),
@@ -141,9 +152,41 @@ class _LoginPageDoctorState extends State<LoginPageDoctor> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                              return const HomePageNakes();
-                            }));
+                            if(_formKey.currentState!.validate()) {
+                              _formKey.currentState!.save();
+
+                              String email = _usernameController.text;
+                              String password = _passwordController.text;
+
+                              final data = {
+                                'email' : email,
+                                'password' : password
+                              };
+
+                               _authController.loginNakes(email, password).then((value) async {
+                                   if(value['success'] == false) {
+                                     ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                          content: Text('Username atau Password salah'),
+                                          duration: Duration(seconds: 2), // Durasi notifikasi
+                                        ),
+                                      );
+                                   }else if(value['success'] == true){
+                                      final SharedPreferences prefs = await SharedPreferences.getInstance();
+                                      prefs.setString('token', value['token']); // Simpan token ke dalam SharedPreferences
+                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                                        return const HomePageNakes();
+                                      }));
+                                   }
+                                });
+
+
+
+
+                            }
+                            // Navigator.push(context, MaterialPageRoute(builder: (context){
+                            //   return const HomePageNakes();
+                            // }));
                           },
                           child: Text('LOGIN', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
                         ),

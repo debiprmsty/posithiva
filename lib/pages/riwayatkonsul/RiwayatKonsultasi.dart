@@ -149,7 +149,7 @@ class _RiwayatKonsultasiState extends State<RiwayatKonsultasi> {
                                     ),
                                     Text(
                                       "Senin 10 Juli 2023 | 18.34 WITA",
-                                      style: lato.copyWith(color: Colors.white, fontSize: 16.9),
+                                      style: lato.copyWith(color: Colors.white, fontSize: 15.5),
                                     ),
                                     const SizedBox(
                                       height: 4,

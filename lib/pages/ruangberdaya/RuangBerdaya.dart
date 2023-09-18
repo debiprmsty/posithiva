@@ -108,7 +108,7 @@ class _RuangBerdayaState extends State<RuangBerdaya> {
               ),
               Text(
                 "Ruang Berdaya",
-                style: lora.copyWith(fontSize: 35, color: birutua),
+                style: loraItalic.copyWith(fontSize: 35, color: birutua),
               ),
               Container(
                 margin: const EdgeInsets.only(top: 12),

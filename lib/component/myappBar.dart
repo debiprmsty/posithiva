@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
 import 'package:posithiva/pages/caridoctor/ArvPage.dart';
@@ -12,6 +14,11 @@ import 'package:posithiva/pages/riwayatkonsul/RiwayatKonsultasi.dart';
 import 'package:posithiva/pages/ruangberdaya/RuangBerdaya.dart';
 import 'package:posithiva/pages/user/ProfileUserPage.dart';
 import 'package:posithiva/theme.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+
+
+
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -214,13 +221,77 @@ class AppDrawer extends StatelessWidget {
   }
 }
 
-class EndDrawer extends StatelessWidget {
+class EndDrawer extends StatefulWidget {
   const EndDrawer({super.key});
+
+  @override
+  State<EndDrawer> createState() => _EndDrawerState();
+}
+
+class _EndDrawerState extends State<EndDrawer> {
+  String namaLengkap ='';
+  String bpjs = '';
+  String imageProfile = '';
+
+  Future<String?> _getToken() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('token');
+  }
+
+  Future<void> fetchData() async {
+    final token = await _getToken();
+    if(token != null) {
+      final url = "https://apigapro.000webhostapp.com/api/me";
+      final response = await http.get(Uri.parse(url),headers: {'Authorization': 'Bearer $token'},);
+
+      if (response.statusCode == 200) {
+          final data = json.decode(response.body);
+          setState(() {
+            namaLengkap = data['name'];
+            bpjs = data['no_bpjs'];
+
+            if(data['image'] != '') {
+              imageProfile = data['image'];
+            }
+          });
+      }else {
+        print('Gagal mengambil data dari API');
+      }
+    }
+  }
+
+  Future<void> logout() async {
+    final token = await _getToken();
+    if(token != null) {
+      final url = "https://apigapro.000webhostapp.com/api/logout";
+      final response = await http.get(Uri.parse(url),headers: {'Authorization': 'Bearer $token'},);
+
+      if(response.statusCode == 200) {
+        final data = json.decode(response.body);
+        print(data);
+
+      }else {
+        print('Gagal logout');
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData(); // Panggil fetchData saat initState
+  }
+
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+    if (namaLengkap.contains(' ')) {
+      List<String> namaSplit = namaLengkap.split(' ');
+      namaLengkap = namaSplit.join('\n');
+    }
     return Drawer(
           backgroundColor: biruabu,
           width: width - width * 0.5 + 30,
@@ -276,16 +347,19 @@ class EndDrawer extends StatelessWidget {
                               style: poppins.copyWith(
                                   color: Colors.black, fontSize: 10),
                             ),
+                            RichText(
+                                textAlign: TextAlign.left,
+                                text: TextSpan(
+                                  style: poppins.copyWith(color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
+                                  children: [
+                                    TextSpan(
+                                      text: namaLengkap,
+                                    ),
+                                  ],
+                                ),
+                              ),
                             Text(
-                              "Mario \nMariono",
-                              textAlign: TextAlign.left,
-                              style: poppins.copyWith(
-                                  color: Colors.black,
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              "BPJS. 7292614 111 391",
+                              "BPJS. ${bpjs}",
                               style: poppins.copyWith(
                                   color: Colors.black, fontSize: 8),
                             )
@@ -301,10 +375,12 @@ class EndDrawer extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(8)
                         ),
-                        child: Image.asset(
-                          "assets/images/avatar.png",
-                          scale: 0.5,
-                        ),
+                        child: imageProfile == '' ? Image.asset(
+                                            "assets/images/avatar.png",
+                                            scale: 0.6,
+                                            fit: BoxFit.cover,
+                                          ) : Image.network("https://apigapro.000webhostapp.com/api/image/$imageProfile", scale: 0.35,
+                                            fit: BoxFit.cover,)
                       ),
                     ],
                   ),
@@ -379,7 +455,7 @@ class EndDrawer extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 300,
+                  height: 220,
                 ),
                 Container(
                   width: 165,
@@ -395,10 +471,44 @@ class EndDrawer extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const LoginPage();
-                        }));
+                        // Navigator.push(context,
+                        //     MaterialPageRoute(builder: (context) {
+                        //   return const LoginPage();
+                        // }));
+
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                              
+                                title: Text('Keluar dari Akun ini ?',textAlign: TextAlign.center,style: lato.copyWith(fontWeight: FontWeight.bold,color: Colors.white),),
+                                backgroundColor: Color.fromARGB(255, 223, 135, 4),
+                                actionsAlignment: MainAxisAlignment.spaceEvenly,
+                                actions: [
+                                  ElevatedButton(style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(birutua)
+                                  ), onPressed: ()async{
+                                    await logout();
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text('Anda berhasil logout !'),
+                                        duration: Duration(seconds: 2), // Durasi notifikasi
+                                      ),
+                                    );
+                                     Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder: (context) => LoginPage()),
+                                      );
+                                  }, child: Text("iya",style: poppins.copyWith(fontSize: 14),)),
+                                  ElevatedButton(style: ButtonStyle(
+                                    backgroundColor: MaterialStatePropertyAll(birutua)
+                                  ), onPressed: (){
+                                    Navigator.of(context).pop();
+                                  }, child: Text("tidak",style: poppins.copyWith(fontSize: 14),)),
+                                ],
+                              );
+                            },
+                          );
                       },
                       child: Text(
                         'LOG OUT',

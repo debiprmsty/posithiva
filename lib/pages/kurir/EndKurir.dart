@@ -102,7 +102,7 @@ class _EndKurirState extends State<EndKurir> {
                 ),
                 Text("Selanjutnya kami akan menghubungi \n melalui nomor Whatsapp anda", style: lato.copyWith(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
                 const SizedBox(
-                  height: 210,
+                  height: 160,
                 ),
                 SizedBox(
                   width: width,
