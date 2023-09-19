@@ -92,7 +92,7 @@ class _HomePageUserState extends State<HomePageUser> {
             centerTitle: true,
           ),
           drawer: AppDrawer(),
-          endDrawer : EndDrawer(),
+          endDrawer: EndDrawer(),
           body: SingleChildScrollView(
             child: Center(
               child: Container(
@@ -178,7 +178,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                     ),
                                     Text(
                                       "Puskesmas Buleleng I",
-                                      style: lato.copyWith(color: Colors.white, fontSize: 18),
+                                      style: lato.copyWith(
+                                          color: Colors.white, fontSize: 18),
                                     ),
                                     const SizedBox(
                                       height: 4,
@@ -188,7 +189,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                         Container(
                                           width: 88,
                                           height: 18,
-                                          margin: const EdgeInsets.only(bottom: 5),
+                                          margin:
+                                              const EdgeInsets.only(bottom: 5),
                                           decoration: BoxDecoration(
                                               color: Colors.grey[350],
                                               borderRadius:
@@ -209,14 +211,20 @@ class _HomePageUserState extends State<HomePageUser> {
                                                       width: 5,
                                                     ),
                                                     Padding(
-                                                      padding: const EdgeInsets.only(bottom: 4),
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              bottom: 4),
                                                       child: Container(
-                                                        alignment: Alignment.center,
+                                                        alignment:
+                                                            Alignment.center,
                                                         child: Text(
                                                           "ONLINE",
-                                                          style:
-                                                              lato.copyWith(fontSize: 14.5, color: Colors.black),
-                                                              textAlign: TextAlign.center,
+                                                          style: lato.copyWith(
+                                                              fontSize: 14.5,
+                                                              color:
+                                                                  Colors.black),
+                                                          textAlign:
+                                                              TextAlign.center,
                                                         ),
                                                       ),
                                                     )
@@ -232,7 +240,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                         Container(
                                           width: 88,
                                           height: 18,
-                                          margin: const EdgeInsets.only(bottom: 5),
+                                          margin:
+                                              const EdgeInsets.only(bottom: 5),
                                           decoration: BoxDecoration(
                                               color: Colors.grey[350],
                                               borderRadius:
@@ -253,14 +262,20 @@ class _HomePageUserState extends State<HomePageUser> {
                                                       width: 5,
                                                     ),
                                                     Padding(
-                                                      padding: const EdgeInsets.only(bottom: 4),
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              bottom: 4),
                                                       child: Container(
-                                                        alignment: Alignment.center,
+                                                        alignment:
+                                                            Alignment.center,
                                                         child: Text(
                                                           "ON-SITE",
-                                                          style:
-                                                              lato.copyWith(fontSize: 14.5, color: Colors.black),
-                                                              textAlign: TextAlign.center,
+                                                          style: lato.copyWith(
+                                                              fontSize: 14.5,
+                                                              color:
+                                                                  Colors.black),
+                                                          textAlign:
+                                                              TextAlign.center,
                                                         ),
                                                       ),
                                                     )
@@ -449,10 +464,10 @@ class _HomePageUserState extends State<HomePageUser> {
                       height: 41,
                       child: ElevatedButton(
                           style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(Colors.deepOrange[400]),
-                            shape:
-                                MaterialStatePropertyAll<RoundedRectangleBorder>(
+                            backgroundColor: MaterialStatePropertyAll(
+                                Colors.deepOrange[400]),
+                            shape: MaterialStatePropertyAll<
+                                RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -526,7 +541,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                     Padding(
                                       padding: const EdgeInsets.only(left: 5),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Container(
                                             width: 50,
@@ -535,7 +551,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                             child: Text(
                                               "OBAT AWAL",
                                               style: poppins.copyWith(
-                                                  fontSize: 8, color: Colors.black),
+                                                  fontSize: 8,
+                                                  color: Colors.black),
                                               textAlign: TextAlign.center,
                                             ),
                                           ),
@@ -568,7 +585,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                       width: 8,
                                     ),
                                     Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Container(
                                           width: 29,
@@ -577,7 +595,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                           child: Text(
                                             "SISA",
                                             style: poppins.copyWith(
-                                                fontSize: 8, color: Colors.black),
+                                                fontSize: 8,
+                                                color: Colors.black),
                                             textAlign: TextAlign.center,
                                           ),
                                         ),
@@ -603,34 +622,40 @@ class _HomePageUserState extends State<HomePageUser> {
                                     Padding(
                                       padding: const EdgeInsets.only(bottom: 6),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Container(
-                                            margin: const EdgeInsets.only(bottom: 8, left: 4),
+                                            margin: const EdgeInsets.only(
+                                                bottom: 8, left: 4),
                                             width: 62,
                                             height: 11,
                                             child: Text(
                                               "SCAN OBAT",
                                               style: poppins.copyWith(
-                                                  fontSize: 10, color: Colors.white),
+                                                  fontSize: 10,
+                                                  color: Colors.white),
                                             ),
                                           ),
                                           GestureDetector(
                                               onTap: () {
                                                 showModalBottomSheet(
                                                   context: context,
-                                                  builder: (BuildContext context) {
+                                                  builder:
+                                                      (BuildContext context) {
                                                     return Container(
                                                       height: 150.0,
                                                       child: Column(
                                                         children: [
                                                           ListTile(
-                                                            leading: Icon(
-                                                                Icons.camera_alt),
-                                                            title: Text('Camera'),
+                                                            leading: Icon(Icons
+                                                                .camera_alt),
+                                                            title:
+                                                                Text('Camera'),
                                                             onTap: () {
-                                                              _pickImage(ImageSource
-                                                                  .camera);
+                                                              _pickImage(
+                                                                  ImageSource
+                                                                      .camera);
                                                               Navigator.pop(
                                                                   context);
                                                             },
@@ -638,10 +663,12 @@ class _HomePageUserState extends State<HomePageUser> {
                                                           ListTile(
                                                             leading: Icon(Icons
                                                                 .photo_library),
-                                                            title: Text('Gallery'),
+                                                            title:
+                                                                Text('Gallery'),
                                                             onTap: () {
-                                                              _pickImage(ImageSource
-                                                                  .gallery);
+                                                              _pickImage(
+                                                                  ImageSource
+                                                                      .gallery);
                                                               Navigator.pop(
                                                                   context);
                                                             },
@@ -653,7 +680,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                                 );
                                               },
                                               child: Padding(
-                                                padding: const EdgeInsets.only(right: 2),
+                                                padding: const EdgeInsets.only(
+                                                    right: 2),
                                                 child: Image.asset(
                                                   "assets/images/camera.png",
                                                   scale: 1,
@@ -729,18 +757,17 @@ class _HomePageUserState extends State<HomePageUser> {
                                 right: 8,
                                 child: GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                                    Navigator.push(context,
+                                        MaterialPageRoute(builder: (context) {
                                       return const ReminderObatPage();
                                     }));
                                   },
                                   child: Container(
-    
                                     width: 120,
                                     height: 15,
                                     decoration: BoxDecoration(
-                                      color: birutua,
-                                      borderRadius: BorderRadius.circular(4)
-                                    ),
+                                        color: birutua,
+                                        borderRadius: BorderRadius.circular(4)),
                                     child: Text(
                                       "INGATKAN SAYA",
                                       style: poppins.copyWith(
@@ -794,7 +821,9 @@ class _HomePageUserState extends State<HomePageUser> {
                                   height: 35,
                                   child: ElevatedButton(
                                       onPressed: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                                        Navigator.push(context,
+                                            MaterialPageRoute(
+                                                builder: (context) {
                                           return const AlarmPage();
                                         }));
                                       },
@@ -804,10 +833,12 @@ class _HomePageUserState extends State<HomePageUser> {
                                                   Colors.orange[700]),
                                           padding: MaterialStatePropertyAll(
                                               EdgeInsets.symmetric(
-                                                  vertical: 8, horizontal: 10))),
+                                                  vertical: 8,
+                                                  horizontal: 10))),
                                       child: Row(
                                         children: [
-                                          Image.asset("assets/images/alarm.png"),
+                                          Image.asset(
+                                              "assets/images/alarm.png"),
                                           const SizedBox(
                                             width: 8,
                                           ),
@@ -856,12 +887,12 @@ class _HomePageUserState extends State<HomePageUser> {
                                             ),
                                           ),
                                           Text(
-                                          "HIV STATUS",
-                                          style: poppins.copyWith(
-                                            fontSize: 7,
+                                            "HIV STATUS",
+                                            style: poppins.copyWith(
+                                              fontSize: 7,
+                                            ),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textAlign: TextAlign.center,
-                                        ),
                                         ],
                                       ),
                                       const SizedBox(
@@ -887,12 +918,12 @@ class _HomePageUserState extends State<HomePageUser> {
                                             ),
                                           ),
                                           Text(
-                                          "KETAATAN ARV",
-                                          style: poppins.copyWith(
-                                            fontSize: 7,
+                                            "KETAATAN ARV",
+                                            style: poppins.copyWith(
+                                              fontSize: 7,
+                                            ),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textAlign: TextAlign.center,
-                                        ),
                                         ],
                                       ),
                                       const SizedBox(
@@ -917,7 +948,8 @@ class _HomePageUserState extends State<HomePageUser> {
                                                   style: poppins.copyWith(
                                                       fontSize: 16,
                                                       color: Colors.white,
-                                                      fontWeight: FontWeight.w600),
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                                 ),
                                                 Text(
                                                   "copies/mL",
@@ -929,18 +961,17 @@ class _HomePageUserState extends State<HomePageUser> {
                                             ),
                                           ),
                                           Text(
-                                          "VIRAL LOAD",
-                                          style: poppins.copyWith(
-                                            fontSize: 7,
+                                            "VIRAL LOAD",
+                                            style: poppins.copyWith(
+                                              fontSize: 7,
+                                            ),
+                                            textAlign: TextAlign.center,
                                           ),
-                                          textAlign: TextAlign.center,
-                                        ),
                                         ],
                                       ),
                                     ],
                                   ),
                                 ),
-                                
                               ],
                             ),
                             Column(
