@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:posithiva/auth/LoginPage.dart';
 import 'package:posithiva/pages/SplashScreen.dart';
 
-
-
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -21,5 +19,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
