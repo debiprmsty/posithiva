@@ -15,13 +15,23 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   String? token = '';
 
-  Future<String?> _getToken() async {
+  Future<void> _getToken() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     final data = prefs.getString('token');
-    setState(() {
-      token = data;
-    });
+    if (data != null && data.isNotEmpty) {
+      setState(() {
+        token = data;
+      });
+    } else {
+      // Token is empty or null, navigate to login page
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => LoginPage(),
+        ),
+      );
+    }
   }
+
 
   @override
   void initState() {
@@ -31,6 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(token);
     return AnimatedSplashScreen(
       splash: Transform.scale(
         scale: 2,
@@ -38,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
           "assets/images/logo.png",
         ),
       ),
-      nextScreen: token != ''
+      nextScreen:  token != null && token!.isNotEmpty
           ? HomePageUser()
           : LoginPage(), // Gantilah dengan halaman utama Anda
       splashTransition: SplashTransition.fadeTransition, // Animasi fade

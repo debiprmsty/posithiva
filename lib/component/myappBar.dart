@@ -261,20 +261,43 @@ class _EndDrawerState extends State<EndDrawer> {
   }
 
   Future<void> logout() async {
-    final token = await _getToken();
-    if(token != null) {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('token');
+    
+    if (token != null) {
       final url = "https://apigapro.000webhostapp.com/api/logout";
-      final response = await http.get(Uri.parse(url),headers: {'Authorization': 'Bearer $token'},);
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {'Authorization': 'Bearer $token'},
+      );
 
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         final data = json.decode(response.body);
         print(data);
-
-      }else {
+        
+        // Hapus token dari SharedPreferences
+        await prefs.remove('token');
+      } else {
         print('Gagal logout');
       }
     }
   }
+
+  String _getGreeting() {
+    final now = DateTime.now();
+    final currentTime = now.hour;
+
+    if (currentTime >= 0 && currentTime < 12) {
+      return 'Selamat Pagi';
+    } else if (currentTime >= 12 && currentTime < 16) {
+      return 'Selamat Siang';
+    } else if (currentTime >= 16 && currentTime < 19) {
+      return 'Selamat Sore';
+    } else {
+      return 'Selamat Malam';
+    }
+  }
+
 
   @override
   void initState() {
@@ -292,6 +315,8 @@ class _EndDrawerState extends State<EndDrawer> {
       List<String> namaSplit = namaLengkap.split(' ');
       namaLengkap = namaSplit.join('\n');
     }
+
+    String greeting = _getGreeting();
     return Drawer(
           backgroundColor: biruabu,
           width: width - width * 0.5 + 30,
@@ -343,7 +368,7 @@ class _EndDrawerState extends State<EndDrawer> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Selamat Malam!",
+                              "$greeting",
                               style: poppins.copyWith(
                                   color: Colors.black, fontSize: 10),
                             ),
