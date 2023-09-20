@@ -237,13 +237,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                             const SizedBox(width: 8),
                             Container(
-                              width: 260,
+                              width: 230,
                               height: 120,
                               child: Text(
                                 "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
                                 style: latoItalic.copyWith(
                                     color: Colors.grey,
-                                    fontSize: 16,
+                                    fontSize: 13,
                                     fontWeight: FontWeight.w600),
                                 textAlign: TextAlign.justify,
                               ),
