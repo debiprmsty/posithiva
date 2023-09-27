@@ -17,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController _usernameController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _no_bpjs = TextEditingController();
-   String _email = '', _password = '';
+  String _email = '', _password = '';
 
   final AuthController _authController = AuthController();
 
@@ -36,7 +36,6 @@ class _RegisterPageState extends State<RegisterPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -46,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 50),
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -56,41 +55,68 @@ class _RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(onPressed: (){
-                        Navigator.of(context).pop();
-                      }, child: Row(
-                        children: [
-                          Image.asset("assets/images/back.png",width: 15,height: 15,),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                          Text("Kembali",style: poppins.copyWith(color: Colors.white),)
-                        ],
-                      ),
-                      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(birutua)),)
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/back.png",
+                              width: 15,
+                              height: 15,
+                            ),
+                            const SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              "Kembali",
+                              style: poppins.copyWith(color: Colors.white),
+                            )
+                          ],
+                        ),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(birutua)),
+                      )
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(onPressed: (){
-                        Navigator.of(context).pop();
-                      }, child: Row(
-                        children: [
-                          Text("Bantuan",style: poppins.copyWith(color: Colors.white),),
-                          const SizedBox(
-                            width: 6,
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Row(
+                            children: [
+                              Text(
+                                "Bantuan",
+                                style: poppins.copyWith(color: Colors.white),
+                              ),
+                              const SizedBox(
+                                width: 6,
+                              ),
+                              Image.asset(
+                                "assets/images/hlp.png",
+                                width: 25,
+                                height: 25,
+                              ),
+                            ],
                           ),
-                          Image.asset("assets/images/hlp.png",width: 25,height: 25,),
-                        ],
-                      ),style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(birutua)))
+                          style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(birutua)))
                     ],
                   ),
                 ],
               ),
               SizedBox(
                   height: height * 0.25,
-                  child: Image.asset('assets/images/logo.png', width: 150, height: 150,)),
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 150,
+                    height: 150,
+                  )),
               Container(
                 height: height * 0.5 + 300,
                 width: 320,
@@ -173,6 +199,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'Password tidak boleh kosong';
+                          } else if (value.length < 8) {
+                            return 'Password minimal 8 karakter';
                           }
                           return null;
                         },
@@ -181,7 +209,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         },
                         controller: _passwordController,
                         decoration: InputDecoration(
-                             suffixIcon: IconButton(
+                            suffixIcon: IconButton(
                                 onPressed: togglePasswordVisibility,
                                 icon: Icon(
                                   _showPassword
@@ -225,32 +253,32 @@ class _RegisterPageState extends State<RegisterPage> {
                         height: 18,
                       ),
                       SizedBox(
-                        child: Row(
-                          children: [
-                            Checkbox(
-                              value: isChecked,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                  isChecked = value!;
-                                });
-                              },
+                          child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Checkbox(
+                            value: isChecked,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                isChecked = value!;
+                              });
+                            },
+                          ),
+                          const SizedBox(width: 8),
+                          Container(
+                            width: 230,
+                            height: 120,
+                            child: Text(
+                              "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
+                              style: latoItalic.copyWith(
+                                  color: Colors.grey,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w600),
+                              textAlign: TextAlign.justify,
                             ),
-                            const SizedBox(width: 8),
-                            Container(
-                              width: 230,
-                              height: 120,
-                              child: Text(
-                                "Saya setuju atas kebijakan privasi dan kebijakan penggunaan aplikasi POSITHIVA. Saya juga menjamin bahwa data yang saya masukkan ialah benar adanya dan dapat dipertanggung jawabkan.",
-                                style: latoItalic.copyWith(
-                                    color: Colors.grey,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600),
-                                textAlign: TextAlign.justify,
-                              ),
-                            ),
-                          ],
-                        )
-                      ),
+                          ),
+                        ],
+                      )),
                       const SizedBox(
                         height: 30,
                       ),
@@ -258,50 +286,64 @@ class _RegisterPageState extends State<RegisterPage> {
                         width: 320,
                         height: 41,
                         child: ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(birutua),
-                            shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                              RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(birutua),
+                              shape: MaterialStatePropertyAll<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
                               ),
                             ),
-                          ),
-                          onPressed: () async {
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                _formKey.currentState!.save();
 
-                            if(_formKey.currentState!.validate()) {
-                              _formKey.currentState!.save();
+                                String name = _namaController.text;
+                                String email = _usernameController.text;
+                                String password = _passwordController.text;
+                                String alamat = _alamatController.text;
+                                String no_bpjs = _no_bpjs.text;
 
-                              String name = _namaController.text;
-                              String email = _usernameController.text;
-                              String password = _passwordController.text;
-                              String alamat  = _alamatController.text;
-                              String no_bpjs = _no_bpjs.text;
+                                await _authController
+                                    .register(
+                                        name, email, password, alamat, no_bpjs)
+                                    .then((value) => {
+                                          if (value['success'] == true)
+                                            {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                      'Registrasi berhasil!'),
+                                                  duration: Duration(
+                                                      seconds:
+                                                          2), // Durasi notifikasi
+                                                ),
+                                              ),
 
-                              await _authController.register(name, email, password, alamat, no_bpjs).then((value) => {
-                                if(value['success'] == true) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                        content: Text('Registrasi berhasil!'),
-                                        duration: Duration(seconds: 2), // Durasi notifikasi
-                                      ),
-                                    ),
+                                              // Navigasi ke halaman login setelah notifikasi ditampilkan
+                                              Navigator.push(context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) {
+                                                return LoginPage(); // Gantilah LoginPage dengan nama kelas halaman login Anda
+                                              }))
+                                            }
+                                        });
+                              }
 
-                                    // Navigasi ke halaman login setelah notifikasi ditampilkan
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                      return LoginPage(); // Gantilah LoginPage dengan nama kelas halaman login Anda
-                                    }))
-                                }
-                              });
-
-                            }
-
-
-                            // Navigator.push(context, MaterialPageRoute(builder: (context){
-                            //   return const RegisterPage();
-                            // }));
-                          },
-                          child: Text('DAFTAR', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
-                        ),
+                              // Navigator.push(context, MaterialPageRoute(builder: (context){
+                              //   return const RegisterPage();
+                              // }));
+                            },
+                            child: Text(
+                              'DAFTAR',
+                              style: poppins.copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 25),
+                            )),
                       ),
                     ],
                   ),

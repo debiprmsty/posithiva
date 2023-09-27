@@ -6,7 +6,6 @@ import 'package:posithiva/pages/doctor/LoginPageDoctor.dart';
 import 'package:posithiva/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -43,20 +42,24 @@ class _LoginPageState extends State<LoginPage> {
     double width = MediaQuery.of(context).size.width;
 
     return WillPopScope(
-      onWillPop: ()async {
+      onWillPop: () async {
         return false;
       },
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: height * 0.25,
-                  child: Center(child: Image.asset("assets/images/logo.png", height: 150, width: 150,))
-                ),
+                    height: height * 0.25,
+                    child: Center(
+                        child: Image.asset(
+                      "assets/images/logo.png",
+                      height: 150,
+                      width: 150,
+                    ))),
                 const SizedBox(
                   height: 80,
                 ),
@@ -78,25 +81,26 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           keyboardType: TextInputType.number,
                           decoration: InputDecoration(
-                            labelText: 'Nomor BPJS',
-                            labelStyle: poppins.copyWith(color: Colors.grey),
-                            fillColor: abu,
-                            filled: true,
-                            border: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide.none
-                            )
-                          ),
+                              labelText: 'Nomor BPJS',
+                              labelStyle: poppins.copyWith(color: Colors.grey),
+                              fillColor: abu,
+                              filled: true,
+                              border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  borderSide: BorderSide.none)),
                         ),
                         const SizedBox(
                           height: 15,
                         ),
-                         TextFormField(
+                        TextFormField(
                           style: poppins,
                           obscureText: !_showPassword,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Password tidak boleh kosong';
+                            } else if (value.length < 8) {
+                              return 'Password minimal 8 karakter';
                             }
                             return null;
                           },
@@ -105,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           controller: _passwordController,
                           decoration: InputDecoration(
-                               suffixIcon: IconButton(
+                              suffixIcon: IconButton(
                                   onPressed: togglePasswordVisibility,
                                   icon: Icon(
                                     _showPassword
@@ -129,51 +133,70 @@ class _LoginPageState extends State<LoginPage> {
                           width: 195,
                           height: 45,
                           child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(birutua),
-                              shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(birutua),
+                                shape: MaterialStatePropertyAll<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                 ),
                               ),
-                            ),
-                            onPressed: () async {
-                              if(_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
-    
-                                String no_bpjs = nomor_bpjs.text;
-                                String password = _passwordController.text;
-    
-                                
-                                _authController.login(no_bpjs, password).then((value) async {
-                                   if(value['success'] == false) {
-                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                          content: Text('NO BPJS atau Password salah'),
-                                          duration: Duration(seconds: 2), // Durasi notifikasi
+                              onPressed: () async {
+                                if (_formKey.currentState!.validate()) {
+                                  _formKey.currentState!.save();
+
+                                  String no_bpjs = nomor_bpjs.text;
+                                  String password = _passwordController.text;
+
+                                  _authController
+                                      .login(no_bpjs, password)
+                                      .then((value) async {
+                                    if (value['success'] == false) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                              'NO BPJS atau Password salah'),
+                                          duration: Duration(
+                                              seconds: 2), // Durasi notifikasi
                                         ),
                                       );
-                                   }else if(value['success'] == true){
-                                      final SharedPreferences prefs = await SharedPreferences.getInstance();
-                                      prefs.setString('token', value['token']); // Simpan token ke dalam SharedPreferences
-                                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context){
+                                    } else if (value['success'] == true) {
+                                      final SharedPreferences prefs =
+                                          await SharedPreferences.getInstance();
+                                      prefs.setString(
+                                          'token',
+                                          value[
+                                              'token']); // Simpan token ke dalam SharedPreferences
+                                      Navigator.pushReplacement(context,
+                                          MaterialPageRoute(builder: (context) {
                                         return const HomePageUser();
                                       }));
-                                   }
-                                });
-                                
-                              }
-    
-    
-                             
-                            },
-                            child: Text('LOGIN', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 25),)
-                          ),
+                                    }
+                                  });
+                                }
+                              },
+                              child: Text(
+                                'LOGIN',
+                                style: poppins.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 25),
+                              )),
                         ),
                         const SizedBox(
                           height: 120,
                         ),
-                        Text('BELUM PUNYA AKUN?', style: poppins.copyWith(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 15), textAlign: TextAlign.center,),
+                        Text(
+                          'BELUM PUNYA AKUN?',
+                          style: poppins.copyWith(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 15),
+                          textAlign: TextAlign.center,
+                        ),
                         const SizedBox(
                           height: 3,
                         ),
@@ -181,21 +204,29 @@ class _LoginPageState extends State<LoginPage> {
                           width: 175,
                           height: 36,
                           child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(biruabu),
-                              shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(biruabu),
+                                shape: MaterialStatePropertyAll<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                 ),
                               ),
-                            ),
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return const RegisterPage();
-                              }));
-                            },
-                            child: Text('DAFTAR', style: poppins.copyWith(color: birutua, fontWeight: FontWeight.bold, fontSize: 24),)
-                          ),
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const RegisterPage();
+                                }));
+                              },
+                              child: Text(
+                                'DAFTAR',
+                                style: poppins.copyWith(
+                                    color: birutua,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 24),
+                              )),
                         ),
                         const SizedBox(
                           height: 30,
@@ -204,28 +235,34 @@ class _LoginPageState extends State<LoginPage> {
                           width: 320,
                           height: 41,
                           child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStatePropertyAll(birutua),
-                              shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStatePropertyAll(birutua),
+                                shape: MaterialStatePropertyAll<
+                                    RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
                                 ),
                               ),
-                            ),
-                            onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context){
-                                return const LoginPageDoctor();
-                              }));
-                            },
-                            child: Text('MASUK SEBAGAI NAKES', style: poppins.copyWith(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 20),)
-                          ),
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return const LoginPageDoctor();
+                                }));
+                              },
+                              child: Text(
+                                'MASUK SEBAGAI NAKES',
+                                style: poppins.copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 20),
+                              )),
                         ),
                       ],
                     ),
                   ),
                 ),
-                
-                
               ],
             ),
           ),
