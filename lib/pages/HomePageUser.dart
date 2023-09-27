@@ -523,13 +523,15 @@ class _HomePageUserState extends State<HomePageUser> {
                                       color: birumuda3,
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(8))),
-                                  child: Text(
-                                    "SISA OBAT ANDA",
-                                    style: poppins.copyWith(
-                                        fontSize: 14,
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w800),
-                                    textAlign: TextAlign.center,
+                                  child: Center(
+                                    child: Text(
+                                      "SISA OBAT ANDA",
+                                      style: poppins.copyWith(
+                                          fontSize: 14,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w800),
+                                      textAlign: TextAlign.center,
+                                    ),
                                   ),
                                 )),
                             Positioned(
@@ -718,13 +720,15 @@ class _HomePageUserState extends State<HomePageUser> {
                                     color: Colors.orange[700],
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(8))),
-                                child: Text(
-                                  "TANGGAL AMBIL \n OBAT KEMBALI",
-                                  style: poppins.copyWith(
-                                      fontSize: 10,
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.center,
+                                child: Center(
+                                  child: Text(
+                                    "TANGGAL AMBIL \n OBAT KEMBALI",
+                                    style: poppins.copyWith(
+                                        fontSize: 10,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
                               ),
                             ),
@@ -768,11 +772,13 @@ class _HomePageUserState extends State<HomePageUser> {
                                     decoration: BoxDecoration(
                                         color: birutua,
                                         borderRadius: BorderRadius.circular(4)),
-                                    child: Text(
-                                      "INGATKAN SAYA",
-                                      style: poppins.copyWith(
-                                          fontSize: 10, color: Colors.white),
-                                      textAlign: TextAlign.center,
+                                    child: Center(
+                                      child: Text(
+                                        "INGATKAN SAYA",
+                                        style: poppins.copyWith(
+                                            fontSize: 10, color: Colors.white),
+                                        textAlign: TextAlign.center,
+                                      ),
                                     ),
                                   ),
                                 )),
