@@ -241,7 +241,7 @@ class _EndDrawerState extends State<EndDrawer> {
   Future<void> fetchData() async {
     final token = await _getToken();
     if(token != null) {
-      final url = "https://apigapro.000webhostapp.com/api/me";
+      final url = "https://apigrapron.000webhostapp.com/api/me";
       final response = await http.get(Uri.parse(url),headers: {'Authorization': 'Bearer $token'},);
 
       if (response.statusCode == 200) {
@@ -265,7 +265,7 @@ class _EndDrawerState extends State<EndDrawer> {
     final token = prefs.getString('token');
     
     if (token != null) {
-      final url = "https://apigapro.000webhostapp.com/api/logout";
+      final url = "https://apigrapron.000webhostapp.com/api/logout";
       final response = await http.get(
         Uri.parse(url),
         headers: {'Authorization': 'Bearer $token'},
@@ -404,7 +404,7 @@ class _EndDrawerState extends State<EndDrawer> {
                                             "assets/images/avatar.png",
                                             scale: 0.6,
                                             fit: BoxFit.cover,
-                                          ) : Image.network("https://apigapro.000webhostapp.com/api/image/$imageProfile", scale: 0.35,
+                                          ) : Image.network("https://apigrapron.000webhostapp.com/api/image/$imageProfile", scale: 0.35,
                                             fit: BoxFit.cover,)
                       ),
                     ],
