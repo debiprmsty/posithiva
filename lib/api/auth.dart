@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:http/http.dart' as http;
 
 class AuthController {
-  final String baseUrl = "https://apigapro.000webhostapp.com/api/";
+  final String baseUrl = "https://apigrapron.000webhostapp.com/";
 
 
   Future register(String name, String email, String password,String alamat,String no_bpjs) async {
