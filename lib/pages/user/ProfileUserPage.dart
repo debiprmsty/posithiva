@@ -55,7 +55,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
     final token = await _getToken();
     print(token);
     if(token != null) {
-      final url = "https://apigapro.000webhostapp.com/api/me";
+      final url = "https://apigrapron.000webhostapp.com/api/me";
       final response = await http.get(Uri.parse(url),headers: {'Authorization': 'Bearer $token'},);
 
       if (response.statusCode == 200) {
@@ -89,7 +89,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
     final token = await _getToken();
 
     if(token != null) {
-      final url = "https://apigapro.000webhostapp.com/api/update-user";
+      final url = "https://apigrapron.000webhostapp.com/api/update-user";
 
       var request = http.MultipartRequest(
         'POST',
@@ -264,7 +264,7 @@ class _ProfilUserPageState extends State<ProfilUserPage> {
                                             "assets/images/avatar_grey.png",
                                             scale: 0.35,
                                             fit: BoxFit.cover,
-                                          ) : Image.network("https://apigapro.000webhostapp.com/api/image/$imageProfile", scale: 0.35,
+                                          ) : Image.network("https://apigrapron.000webhostapp.com/api/image/$imageProfile", scale: 0.35,
                                             fit: BoxFit.cover,)
                                         ),
                                         Positioned(
